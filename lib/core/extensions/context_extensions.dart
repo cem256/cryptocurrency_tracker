@@ -7,7 +7,7 @@ extension MediaQueryExtension on BuildContext {
 
   double get lowValue => height * 0.01;
   double get mediumValue => height * 0.02;
-  double get highValue => height * 0.06;
+  double get highValue => height * 0.05;
   double get veryHighValue => height * 0.1;
   double get veryHighValue2x => height * 0.2;
   double get veryHighValue3x => height * 0.3;

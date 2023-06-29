@@ -10,8 +10,12 @@ abstract class BaseTheme {
       colorScheme: colorScheme,
       //TODO: Customize widgets here
 
-      appBarTheme: const AppBarTheme(),
+      listTileTheme: _listTileTheme,
       typography: Typography.material2021(),
     );
   }
+
+  ListTileThemeData get _listTileTheme => const ListTileThemeData(
+        contentPadding: EdgeInsets.zero,
+      );
 }
