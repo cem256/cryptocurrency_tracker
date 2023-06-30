@@ -17,14 +17,14 @@ class CryptoBloc extends Bloc<CryptoEvent, CryptoState> {
   CryptoBloc({required UCGetAllCryptocurrencies ucGetAllCryptocurrencies})
       : _ucGetAllCryptocurrencies = ucGetAllCryptocurrencies,
         super(CryptoState.initial()) {
-    on<CryptoEvent>(_onCoinsFetched, transformer: EventTransformerUtils.throttle());
+    on<_Fetched>(_onCoinsFetched, transformer: EventTransformerUtils.throttle());
   }
   int _page = 1;
   final int _perPage = 50;
 
   final UCGetAllCryptocurrencies _ucGetAllCryptocurrencies;
 
-  Future<void> _onCoinsFetched(CryptoEvent event, Emitter<CryptoState> emit) async {
+  Future<void> _onCoinsFetched(_Fetched event, Emitter<CryptoState> emit) async {
     if (state.hasReachedMax) return;
     if (state.status == PageStatus.initial) {
       final result = await _ucGetAllCryptocurrencies.execute(page: _page, perPage: _perPage);

@@ -4,16 +4,14 @@ import 'package:crypto_app/app/router/app_router.dart';
 import 'package:crypto_app/app/router/custom_route_observer.dart';
 import 'package:crypto_app/app/theme/dark/dark_theme.dart';
 import 'package:crypto_app/app/theme/light/light_theme.dart';
-import 'package:crypto_app/core/utils/observer/custom_bloc_observer.dart';
+import 'package:crypto_app/core/extensions/context_extensions.dart';
 import 'package:crypto_app/injection.dart' as sl;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  Bloc.observer = CustomBlocObserver();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await sl.initDependencies();
 
@@ -44,6 +42,16 @@ class CryptoApp extends StatelessWidget {
       // Routing
       routerConfig: _appRouter.config(
         navigatorObservers: () => [CustomRouteObserver()],
+      ),
+
+      builder: (context, child) => MediaQuery(
+        // Disables font scaling and bold text
+        data: context.mediaQuery.copyWith(textScaleFactor: 1, boldText: false),
+        // Dismisses the keyboard globally
+        child: GestureDetector(
+          onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+          child: child,
+        ),
       ),
     );
   }

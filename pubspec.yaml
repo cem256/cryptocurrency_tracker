@@ -34,7 +34,6 @@ dependencies:
   intl: ^0.18.0
 
   # UI
-  flex_seed_scheme: ^1.3.0
   ui_kit:
     path: packages/ui_kit
 

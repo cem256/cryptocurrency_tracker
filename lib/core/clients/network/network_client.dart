@@ -22,6 +22,7 @@ class NetworkClient {
         PrettyDioLogger(
           requestHeader: true,
           requestBody: true,
+          responseBody: false,
         ),
       );
     }

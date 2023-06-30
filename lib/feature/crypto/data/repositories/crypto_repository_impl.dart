@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:crypto_app/app/shared/models/failure/failure_model.dart';
+import 'package:crypto_app/core/models/failure/failure_model.dart';
 import 'package:crypto_app/feature/crypto/data/datasources/remote/crypto_remote_data_source.dart';
 import 'package:crypto_app/feature/crypto/data/models/crypto_model.dart';
 import 'package:crypto_app/feature/crypto/domain/entities/crypto_entity.dart';
@@ -20,7 +20,6 @@ class CryptoRepositoryImpl implements CryptoRepository {
   }) async {
     try {
       final result = await _remoteDataSource.getAllCryptocurrencies(page: page, perPage: perPage);
-      log(result.toString());
       return right(result.map((e) => e.toCryptoEntity()).toList());
     } on Exception catch (e) {
       log('ERROR: CryptoRepositoryImpl: $e');

@@ -1,3 +1,4 @@
+import 'package:crypto_app/app/theme/constants/theme_constants.dart';
 import 'package:flutter/material.dart';
 
 abstract class BaseTheme {
@@ -6,16 +7,27 @@ abstract class BaseTheme {
   ThemeData get theme {
     return ThemeData(
       useMaterial3: true,
-
       colorScheme: colorScheme,
-      //TODO: Customize widgets here
-
+      appBarTheme: _appBarTheme,
       listTileTheme: _listTileTheme,
-      typography: Typography.material2021(),
+      inputDecorationTheme: _inputDecorationTheme,
     );
   }
 
+  AppBarTheme get _appBarTheme => const AppBarTheme(
+        centerTitle: true,
+      );
+
   ListTileThemeData get _listTileTheme => const ListTileThemeData(
         contentPadding: EdgeInsets.zero,
+      );
+
+  InputDecorationTheme get _inputDecorationTheme => InputDecorationTheme(
+        filled: true,
+        contentPadding: EdgeInsets.zero,
+        border: OutlineInputBorder(
+          borderRadius: ThemeConstants.borderRadiusCircular,
+          borderSide: BorderSide.none,
+        ),
       );
 }

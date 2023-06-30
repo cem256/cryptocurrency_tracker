@@ -1,4 +1,4 @@
-import 'package:crypto_app/app/shared/models/failure/failure_model.dart';
+import 'package:crypto_app/core/models/failure/failure_model.dart';
 import 'package:crypto_app/feature/crypto/domain/entities/crypto_entity.dart';
 import 'package:crypto_app/feature/crypto/domain/repositores/crypto_repository.dart';
 import 'package:dartz/dartz.dart';

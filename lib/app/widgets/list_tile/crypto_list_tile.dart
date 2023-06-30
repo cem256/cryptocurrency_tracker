@@ -18,9 +18,7 @@ class CryptoListTile extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           IconButton(
-            icon: const Icon(
-              Icons.star,
-            ),
+            icon: const Icon(Icons.star_outline),
             onPressed: () {},
           ),
           UIKitNetworkImage(
@@ -33,41 +31,34 @@ class CryptoListTile extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _OverflowText(
-                text: cryptocurrency.name,
-              ),
-              _OverflowText(
-                text: '${cryptocurrency.marketCapRank}. ${cryptocurrency.symbol.toUpperCase()}',
-              ),
-            ],
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  cryptocurrency.name,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text('${cryptocurrency.marketCapRank}. ${cryptocurrency.symbol.toUpperCase()}'),
+              ],
+            ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              _OverflowText(
-                text: '\$${cryptocurrency.currentPrice}',
-              ),
-              _OverflowText(
-                text: '${cryptocurrency.priceChange24h.toStringAsFixed(2)}%',
+              Text('\$${cryptocurrency.currentPrice}'),
+              Text(
+                '${cryptocurrency.priceChange24h.toStringAsFixed(2)}%',
+                style: TextStyle(
+                  color: cryptocurrency.priceChange24h.isNegative
+                      ? context.theme.colorScheme.error
+                      : context.theme.colorScheme.primary,
+                ),
               ),
             ],
           )
         ],
       ),
     );
-  }
-}
-
-class _OverflowText extends StatelessWidget {
-  const _OverflowText({required this.text});
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(text, overflow: TextOverflow.clip);
   }
 }

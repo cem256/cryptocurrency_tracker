@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:crypto_app/app/router/app_router.gr.dart';
-import 'package:crypto_app/app/shared/widgets/list_tile/crypto_list_tile.dart';
+import 'package:crypto_app/app/widgets/list_tile/crypto_list_tile.dart';
 import 'package:crypto_app/core/enums/page_status.dart';
 import 'package:crypto_app/core/extensions/context_extensions.dart';
 import 'package:crypto_app/feature/crypto/domain/entities/crypto_entity.dart';

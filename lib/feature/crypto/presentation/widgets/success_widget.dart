@@ -41,7 +41,6 @@ class _SuccessWidgetState extends State<_SuccessWidget> {
     return Padding(
       padding: context.paddingAllLow,
       child: ListView.separated(
-        padding: EdgeInsets.zero,
         controller: _scrollController,
         itemCount: widget.hasReachedMax ? widget.cryptocurrencies.length : widget.cryptocurrencies.length + 1,
         itemBuilder: (context, index) {

@@ -9,7 +9,7 @@ class _FailureWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Something Went Wrong'),
+          const Text('Oops! Something went wrong.'),
           SizedBox(height: context.mediumValue),
           TextButton.icon(
             onPressed: () => context.read<CryptoBloc>().add(const CryptoEvent.onCryptocurrenciesFetched()),
