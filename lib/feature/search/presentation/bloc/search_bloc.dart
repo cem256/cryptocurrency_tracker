@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:crypto_app/app/constants/duration_contants.dart';
 import 'package:crypto_app/core/utils/event_transformer/event_transformer_utils.dart';
 import 'package:crypto_app/feature/search/domain/entities/search_entity.dart';
 import 'package:crypto_app/feature/search/domain/usecases/uc_search.dart';
@@ -16,7 +17,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   SearchBloc({required UCSearch ucSearch})
       : _ucSearch = ucSearch,
         super(SearchState.initial()) {
-    on<_QueryChanged>(_onQueryChanged, transformer: EventTransformerUtils.debounce());
+    on<_QueryChanged>(_onQueryChanged, transformer: EventTransformerUtils.debounce(DurationContants.medium()));
     on<_SearchFieldCleared>(_onSearchFieldCleared);
   }
 

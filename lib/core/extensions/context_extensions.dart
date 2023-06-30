@@ -55,13 +55,6 @@ extension PaddingExtension on BuildContext {
   EdgeInsets get paddingBottomVeryHigh => EdgeInsets.only(bottom: veryHighValue);
 }
 
-extension DurationExtension on BuildContext {
-  Duration get durationLow => const Duration(milliseconds: 250);
-  Duration get durationDefault => const Duration(milliseconds: 500);
-  Duration get durationHigh => const Duration(milliseconds: 1000);
-  Duration get durationVeryHigh => const Duration(milliseconds: 2000);
-}
-
 extension ThemeExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
   TextTheme get textTheme => theme.textTheme;

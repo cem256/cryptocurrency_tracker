@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:crypto_app/app/constants/duration_contants.dart';
 import 'package:crypto_app/core/enums/page_status.dart';
 import 'package:crypto_app/core/utils/event_transformer/event_transformer_utils.dart';
 import 'package:crypto_app/feature/crypto/domain/entities/crypto_entity.dart';
@@ -17,7 +18,7 @@ class CryptoBloc extends Bloc<CryptoEvent, CryptoState> {
   CryptoBloc({required UCGetAllCryptocurrencies ucGetAllCryptocurrencies})
       : _ucGetAllCryptocurrencies = ucGetAllCryptocurrencies,
         super(CryptoState.initial()) {
-    on<_Fetched>(_onCoinsFetched, transformer: EventTransformerUtils.throttle());
+    on<_Fetched>(_onCoinsFetched, transformer: EventTransformerUtils.throttle(DurationContants.long()));
   }
   int _page = 1;
   final int _perPage = 50;
