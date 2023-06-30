@@ -1,7 +1,10 @@
-part of '../view/crypto_view.dart';
+import 'package:crypto_app/core/extensions/context_extensions.dart';
+import 'package:flutter/material.dart';
 
-class _FailureWidget extends StatelessWidget {
-  const _FailureWidget();
+class FailureWidget extends StatelessWidget {
+  const FailureWidget({required this.onPressed, super.key});
+
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +15,7 @@ class _FailureWidget extends StatelessWidget {
           const Text('Oops! Something went wrong.'),
           SizedBox(height: context.mediumValue),
           TextButton.icon(
-            onPressed: () => context.read<CryptoBloc>().add(const CryptoEvent.onCryptocurrenciesFetched()),
+            onPressed: onPressed,
             icon: const Icon(Icons.refresh_outlined),
             label: const Text('Retry'),
           ),

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:crypto_app/app/router/app_router.gr.dart';
+import 'package:crypto_app/app/widgets/failure/failure_widget.dart';
 import 'package:crypto_app/app/widgets/list_tile/crypto_list_tile.dart';
 import 'package:crypto_app/core/enums/page_status.dart';
 import 'package:crypto_app/core/extensions/context_extensions.dart';
@@ -10,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part '../widgets/app_bar.dart';
-part '../widgets/failure_widget.dart';
 part '../widgets/success_widget.dart';
 
 @RoutePage()
@@ -42,7 +42,11 @@ class _CryptoViewBody extends StatelessWidget {
               cryptocurrencies: state.cryptocurrencies,
               hasReachedMax: state.hasReachedMax,
             ),
-          PageStatus.failure => const _FailureWidget()
+          PageStatus.failure => FailureWidget(
+              onPressed: () => context.read<CryptoBloc>().add(
+                    const CryptoEvent.onCryptocurrenciesFetched(),
+                  ),
+            )
         };
       },
     );

@@ -8,7 +8,7 @@ class _SearchListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () => context.router.push(const CryptoDetailRoute()),
+      onTap: () => context.router.push(CryptoDetailRoute(id: cryptocurrency.id, name: cryptocurrency.name)),
       leading: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

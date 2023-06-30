@@ -6,11 +6,11 @@ import 'package:injectable/injectable.dart';
 
 @Injectable()
 class UCSearch {
-  UCSearch({required SearchRepository searchRepository}) : _searchRepository = searchRepository;
+  UCSearch({required SearchRepository repository}) : _repository = repository;
 
-  final SearchRepository _searchRepository;
+  final SearchRepository _repository;
 
   Future<Either<FailureModel, List<SearchEntity>>> execute({required String query}) {
-    return _searchRepository.search(query: query);
+    return _repository.search(query: query);
   }
 }

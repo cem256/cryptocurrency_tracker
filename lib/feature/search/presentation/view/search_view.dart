@@ -35,26 +35,28 @@ class _SearchViewBody extends StatelessWidget {
       appBar: AppBar(
         title: const _SearchTextField(),
       ),
-      body: BlocBuilder<SearchBloc, SearchState>(
-        builder: (context, state) {
-          return switch (state.status) {
-            SearchStatus.initial => const _CenteredText(
-                text: 'Enter a cryptocurrency name or symbol to get started.',
-              ),
-            SearchStatus.loading => const Center(
-                child: CircularProgressIndicator.adaptive(),
-              ),
-            SearchStatus.failure => const _CenteredText(
-                text: 'Oops! Something went wrong.',
-              ),
-            SearchStatus.noResult => _CenteredText(
-                text: "No results found for '${state.query}'",
-              ),
-            SearchStatus.success => _SuccessWidget(
-                cryptocurrencies: state.cryptocurrencies,
-              )
-          };
-        },
+      body: SafeArea(
+        child: BlocBuilder<SearchBloc, SearchState>(
+          builder: (context, state) {
+            return switch (state.status) {
+              SearchStatus.initial => const _CenteredText(
+                  text: 'Enter a cryptocurrency name or symbol to get started.',
+                ),
+              SearchStatus.loading => const Center(
+                  child: CircularProgressIndicator.adaptive(),
+                ),
+              SearchStatus.failure => const _CenteredText(
+                  text: 'Oops! Something went wrong.',
+                ),
+              SearchStatus.noResult => _CenteredText(
+                  text: "No results found for '${state.query}'",
+                ),
+              SearchStatus.success => _SuccessWidget(
+                  cryptocurrencies: state.cryptocurrencies,
+                )
+            };
+          },
+        ),
       ),
     );
   }

@@ -12,7 +12,7 @@ class _CenteredText extends StatelessWidget {
       child: Center(
         child: Text(
           text,
-          style: context.textTheme.titleMedium,
+          style: context.textTheme.bodyLarge,
           textAlign: TextAlign.center,
         ),
       ),

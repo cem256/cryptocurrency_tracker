@@ -15,13 +15,6 @@ dependencies:
   # State management
   flutter_bloc: ^8.1.3
 
-  # Event Transformers
-  stream_transform: ^2.1.0
-
-  # Localization
-  flutter_localizations:
-    sdk: flutter
-
   # Networking
   dio: ^5.1.2
   dio_smart_retry: ^5.0.0
@@ -30,16 +23,17 @@ dependencies:
   # Routing
   auto_route: ^7.3.0
 
+  # Dependency Injection
+  injectable: ^2.1.1
+  get_it: ^7.6.0
+
   # Utility
   intl: ^0.18.0
+  stream_transform: ^2.1.0
 
   # UI
   ui_kit:
     path: packages/ui_kit
-
-  # Dependency Injection
-  injectable: ^2.1.1
-  get_it: ^7.6.0
 
   # Data class generation
   json_annotation: ^4.8.1
@@ -47,6 +41,10 @@ dependencies:
 
   # Functional programming
   dartz: ^0.10.1
+
+  # Localization
+  flutter_localizations:
+    sdk: flutter
 
 
 
