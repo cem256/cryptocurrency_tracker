@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:crypto_app/app/router/app_router.gr.dart';
+import 'package:crypto_app/app/widgets/text/text_normal.dart';
 import 'package:crypto_app/core/extensions/context_extensions.dart';
 import 'package:crypto_app/feature/search/domain/entities/search_entity.dart';
 import 'package:crypto_app/feature/search/presentation/bloc/search_bloc.dart';
@@ -8,10 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-part '../widgets/search_text_field.dart';
-part '../widgets/search_list_tile.dart';
-part '../widgets/success_widget.dart';
 part '../widgets/centered_text.dart';
+part '../widgets/search_list_tile.dart';
+part '../widgets/search_text_field.dart';
+part '../widgets/success_widget.dart';
 
 @RoutePage()
 class SearchView extends StatelessWidget {

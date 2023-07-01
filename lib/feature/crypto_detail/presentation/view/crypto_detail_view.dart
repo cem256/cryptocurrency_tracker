@@ -1,10 +1,24 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:crypto_app/app/widgets/failure/failure_widget.dart';
+import 'package:crypto_app/app/widgets/text/text_large.dart';
+import 'package:crypto_app/app/widgets/text/text_normal.dart';
+import 'package:crypto_app/app/widgets/text/text_small.dart';
 import 'package:crypto_app/core/enums/page_status.dart';
-import 'package:crypto_app/feature/crypto_detail/presentation/bloc/crypto_detail_bloc.dart';
+import 'package:crypto_app/core/extensions/context_extensions.dart';
+import 'package:crypto_app/core/extensions/widget_extensions.dart';
+import 'package:crypto_app/core/utils/number_format/number_format_utils.dart';
+import 'package:crypto_app/feature/crypto_detail/domain/entities/crypto_detail_entity.dart';
+import 'package:crypto_app/feature/crypto_detail/presentation/cubit/crypto_detail_cubit.dart';
 import 'package:crypto_app/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ui_kit/ui_kit.dart';
+
+part '../widgets/success_widget.dart';
+part '../widgets/price_changes_card.dart';
+part '../widgets/price_statistics_card.dart';
+part '../widgets/price_statistics_list_tile.dart';
+part '../widgets/chart_tab_bar.dart';
 
 @RoutePage()
 class CryptoDetailView extends StatelessWidget {
@@ -26,7 +40,7 @@ class CryptoDetailView extends StatelessWidget {
         ],
       ),
       body: BlocProvider(
-        create: (context) => getIt<CryptoDetailBloc>()..add(CryptoDetailEvent.onCryptoDetailFetched(id: id)),
+        create: (context) => getIt<CryptoDetailCubit>()..fetchCryptoDetail(id: id),
         child: _CryptoDetailViewBody(id: id),
       ),
     );
@@ -41,14 +55,16 @@ class _CryptoDetailViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocBuilder<CryptoDetailBloc, CryptoDetailState>(
+      child: BlocBuilder<CryptoDetailCubit, CryptoDetailState>(
         builder: (context, state) {
           return switch (state.status) {
-            PageStatus.initial => const Center(child: CircularProgressIndicator.adaptive()),
+            PageStatus.loading => const Center(child: CircularProgressIndicator.adaptive()),
             PageStatus.failure => FailureWidget(
-                onPressed: () => context.read<CryptoDetailBloc>().add(CryptoDetailEvent.onCryptoDetailFetched(id: id)),
+                onPressed: () => context.read<CryptoDetailCubit>().fetchCryptoDetail(id: id),
               ),
-            PageStatus.success => const Center(child: Text('Success'))
+            PageStatus.success => _SuccessWidget(
+                cryptocurrency: state.cryptocurrency,
+              )
           };
         },
       ),

@@ -1,4 +1,4 @@
-part of 'crypto_detail_bloc.dart';
+part of 'crypto_detail_cubit.dart';
 
 @freezed
 class CryptoDetailState with _$CryptoDetailState {
@@ -8,7 +8,7 @@ class CryptoDetailState with _$CryptoDetailState {
   }) = _CryptoDetailState;
 
   factory CryptoDetailState.initial() => CryptoDetailState(
-        status: PageStatus.initial,
+        status: PageStatus.loading,
         cryptocurrency: CryptoDetailEntity.initial(),
       );
 }

@@ -37,7 +37,7 @@ class _CryptoViewBody extends StatelessWidget {
     return BlocBuilder<CryptoBloc, CryptoState>(
       builder: (context, state) {
         return switch (state.status) {
-          PageStatus.initial => const Center(child: CircularProgressIndicator.adaptive()),
+          PageStatus.loading => const Center(child: CircularProgressIndicator.adaptive()),
           PageStatus.success => _SuccessWidget(
               cryptocurrencies: state.cryptocurrencies,
               hasReachedMax: state.hasReachedMax,

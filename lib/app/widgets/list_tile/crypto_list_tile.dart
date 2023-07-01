@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:crypto_app/app/router/app_router.gr.dart';
+import 'package:crypto_app/app/widgets/text/text_normal.dart';
+import 'package:crypto_app/app/widgets/text/text_small.dart';
 import 'package:crypto_app/core/extensions/context_extensions.dart';
 import 'package:crypto_app/feature/crypto/domain/entities/crypto_entity.dart';
 import 'package:flutter/material.dart';
@@ -35,21 +37,20 @@ class CryptoListTile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  cryptocurrency.name,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Text('${cryptocurrency.marketCapRank}. ${cryptocurrency.symbol.toUpperCase()}'),
+                TextNormal(cryptocurrency.name),
+                TextSmall('${cryptocurrency.marketCapRank}. ${cryptocurrency.symbol.toUpperCase()}'),
               ],
             ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text('\$${cryptocurrency.currentPrice}'),
-              Text(
+              TextNormal(
+                '\$${cryptocurrency.currentPrice}',
+              ),
+              TextNormal(
                 '${cryptocurrency.priceChange24h.toStringAsFixed(2)}%',
-                style: TextStyle(
+                style: context.textTheme.bodyLarge?.copyWith(
                   color: cryptocurrency.priceChange24h.isNegative
                       ? context.theme.colorScheme.error
                       : context.theme.colorScheme.primary,

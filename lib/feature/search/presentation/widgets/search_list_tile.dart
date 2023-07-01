@@ -27,19 +27,18 @@ class _SearchListTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Flexible(
-            flex: 3,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                TextNormal(
                   cryptocurrency.name,
                   overflow: TextOverflow.ellipsis,
                 ),
-                Text(cryptocurrency.symbol.toUpperCase()),
+                TextNormal(cryptocurrency.symbol.toUpperCase()),
               ],
             ),
           ),
-          Text('#${cryptocurrency.marketCapRank}')
+          TextNormal('#${cryptocurrency.marketCapRank}')
         ],
       ),
     );

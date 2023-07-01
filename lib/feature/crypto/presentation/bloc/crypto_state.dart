@@ -9,7 +9,7 @@ class CryptoState with _$CryptoState {
   }) = _CryptoState;
 
   factory CryptoState.initial() => const CryptoState(
-        status: PageStatus.initial,
+        status: PageStatus.loading,
         cryptocurrencies: <CryptoEntity>[],
         hasReachedMax: false,
       );

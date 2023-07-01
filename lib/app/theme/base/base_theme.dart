@@ -9,6 +9,7 @@ abstract class BaseTheme {
       useMaterial3: true,
       colorScheme: colorScheme,
       appBarTheme: _appBarTheme,
+      cardTheme: _cardTheme,
       listTileTheme: _listTileTheme,
       inputDecorationTheme: _inputDecorationTheme,
     );
@@ -16,6 +17,15 @@ abstract class BaseTheme {
 
   AppBarTheme get _appBarTheme => const AppBarTheme(
         centerTitle: true,
+      );
+
+  CardTheme get _cardTheme => CardTheme(
+        elevation: 4,
+        margin: EdgeInsets.zero,
+        shape: OutlineInputBorder(
+          borderRadius: ThemeConstants.borderRadiusCircular,
+          borderSide: BorderSide.none,
+        ),
       );
 
   ListTileThemeData get _listTileTheme => const ListTileThemeData(

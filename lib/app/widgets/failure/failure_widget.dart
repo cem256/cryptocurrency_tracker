@@ -1,3 +1,4 @@
+import 'package:crypto_app/app/widgets/text/text_normal.dart';
 import 'package:crypto_app/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
@@ -12,12 +13,12 @@ class FailureWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Oops! Something went wrong.'),
+          const TextNormal('Oops! Something went wrong.'),
           SizedBox(height: context.mediumValue),
           TextButton.icon(
             onPressed: onPressed,
             icon: const Icon(Icons.refresh_outlined),
-            label: const Text('Retry'),
+            label: const TextNormal('Retry'),
           ),
         ],
       ),

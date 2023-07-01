@@ -27,7 +27,7 @@ class CryptoBloc extends Bloc<CryptoEvent, CryptoState> {
 
   Future<void> _onCoinsFetched(_Fetched event, Emitter<CryptoState> emit) async {
     if (state.hasReachedMax) return;
-    if (state.status == PageStatus.initial) {
+    if (state.status == PageStatus.loading) {
       final result = await _ucGetAllCryptocurrencies.execute(page: _page, perPage: _perPage);
       return result.fold((failure) => emit(state.copyWith(status: PageStatus.failure)), (success) {
         _page++;

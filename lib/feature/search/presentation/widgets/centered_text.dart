@@ -10,9 +10,9 @@ class _CenteredText extends StatelessWidget {
     return Padding(
       padding: context.paddingAllLow,
       child: Center(
-        child: Text(
+        child: TextNormal(
           text,
-          style: context.textTheme.bodyLarge,
+          maxLines: 2,
           textAlign: TextAlign.center,
         ),
       ),
