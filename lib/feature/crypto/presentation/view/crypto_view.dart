@@ -1,16 +1,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:crypto_app/app/router/app_router.gr.dart';
 import 'package:crypto_app/app/widgets/failure/failure_widget.dart';
-import 'package:crypto_app/app/widgets/list_tile/crypto_list_tile.dart';
+import 'package:crypto_app/app/widgets/text/text_normal.dart';
+import 'package:crypto_app/app/widgets/text/text_small.dart';
 import 'package:crypto_app/core/enums/page_status.dart';
 import 'package:crypto_app/core/extensions/context_extensions.dart';
+import 'package:crypto_app/core/utils/number_format/number_format_utils.dart';
 import 'package:crypto_app/feature/crypto/domain/entities/crypto_entity.dart';
 import 'package:crypto_app/feature/crypto/presentation/bloc/crypto_bloc.dart';
 import 'package:crypto_app/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ui_kit/widgets/image/ui_kit_network_image.dart';
 
 part '../widgets/app_bar.dart';
+part '../widgets/crypto_list_tile.dart';
 part '../widgets/success_widget.dart';
 
 @RoutePage()

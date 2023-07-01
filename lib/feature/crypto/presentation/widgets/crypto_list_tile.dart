@@ -1,11 +1,4 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:crypto_app/app/router/app_router.gr.dart';
-import 'package:crypto_app/app/widgets/text/text_normal.dart';
-import 'package:crypto_app/app/widgets/text/text_small.dart';
-import 'package:crypto_app/core/extensions/context_extensions.dart';
-import 'package:crypto_app/feature/crypto/domain/entities/crypto_entity.dart';
-import 'package:flutter/material.dart';
-import 'package:ui_kit/ui_kit.dart';
+part of '../view/crypto_view.dart';
 
 class CryptoListTile extends StatelessWidget {
   const CryptoListTile({required this.cryptocurrency, super.key});
@@ -46,7 +39,7 @@ class CryptoListTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextNormal(
-                '\$${cryptocurrency.currentPrice}',
+                NumberFormatUtils.getCurrency(value: cryptocurrency.currentPrice),
               ),
               TextNormal(
                 '${cryptocurrency.priceChange24h.toStringAsFixed(2)}%',

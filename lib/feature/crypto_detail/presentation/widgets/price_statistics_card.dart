@@ -17,7 +17,7 @@ class _PriceStatisticsCard extends StatelessWidget {
           children: [
             _StatisticsListTile(
               leading: 'Rank',
-              trailing: NumberFormatUtils.getRank(rank: cryptocurrency.marketCapRank),
+              trailing: '#${cryptocurrency.marketCapRank}',
             ),
             const Divider(),
             _StatisticsListTile(

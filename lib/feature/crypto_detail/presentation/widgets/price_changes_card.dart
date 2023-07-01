@@ -18,7 +18,7 @@ class _PriceChangeCard extends StatelessWidget {
               : context.theme.colorScheme.primaryContainer,
           child: Padding(
             padding: context.paddingAllLow,
-            child: TextNormal(priceChange.toStringAsFixed(2)),
+            child: TextNormal('${priceChange.toStringAsFixed(2)}%'),
           ),
         ),
       ],
