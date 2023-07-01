@@ -1,5 +1,3 @@
-// ignore_for_file: invalid_annotation_target
-
 import 'package:crypto_app/feature/crypto/domain/entities/crypto_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

@@ -1,5 +1,3 @@
-// ignore_for_file: one_member_abstracts
-
 import 'package:crypto_app/app/constants/api_constants.dart';
 import 'package:crypto_app/core/clients/network/network_client.dart';
 import 'package:crypto_app/feature/search/data/models/search_model.dart';
