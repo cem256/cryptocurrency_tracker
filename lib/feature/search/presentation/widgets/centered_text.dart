@@ -8,7 +8,7 @@ class _CenteredText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: context.paddingAllLow,
+      padding: context.paddingAllDefault,
       child: Center(
         child: TextNormal(
           text,

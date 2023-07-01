@@ -13,26 +13,36 @@ class _SuccessWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: UIKitNetworkImage(
-                height: context.highValue,
-                imageUrl: cryptocurrency.image,
-                errorWidget: const Icon(Icons.error_outline),
-              ),
+            Row(
+              children: [
+                UIKitNetworkImage(
+                  height: context.highValue,
+                  imageUrl: cryptocurrency.image,
+                  errorWidget: const Icon(Icons.error_outline),
+                ),
+                SizedBox(
+                  width: context.mediumValue,
+                ),
+                TextLarge('${cryptocurrency.symbol.toUpperCase()} Overview'),
+              ],
             ),
-            const _ChartTabBar(),
-            TextLarge('${cryptocurrency.symbol.toUpperCase()} Price Changes'),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _PriceChangeCard(timePeriod: '24h', priceChange: cryptocurrency.priceChange24h),
-                _PriceChangeCard(timePeriod: '7d', priceChange: cryptocurrency.priceChange7d),
-                _PriceChangeCard(timePeriod: '1m', priceChange: cryptocurrency.priceChange30d),
-                _PriceChangeCard(timePeriod: '1y', priceChange: cryptocurrency.priceChange1y),
+                _OverviewCard(timePeriod: '24H', priceChange: cryptocurrency.priceChange24h),
+                _OverviewCard(timePeriod: '7D', priceChange: cryptocurrency.priceChange7d),
+                _OverviewCard(timePeriod: '1M', priceChange: cryptocurrency.priceChange30d),
+                _OverviewCard(timePeriod: '1Y', priceChange: cryptocurrency.priceChange1y),
               ],
             ),
-            TextLarge('${cryptocurrency.symbol.toUpperCase()} Price Statistics'),
-            _PriceStatisticsCard(cryptocurrency: cryptocurrency),
+            TextLarge('${cryptocurrency.symbol.toUpperCase()} Details'),
+            _DetailCard(
+              child: _SectionDetails(cryptocurrency: cryptocurrency),
+            ),
+            TextLarge('${cryptocurrency.symbol.toUpperCase()} Historical Data'),
+            _DetailCard(
+              child: _SectionHistoricalData(cryptocurrency: cryptocurrency),
+            ),
           ].withSpaceBetween(height: context.mediumValue),
         ),
       ),

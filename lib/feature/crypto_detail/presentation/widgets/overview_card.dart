@@ -1,7 +1,7 @@
 part of '../view/crypto_detail_view.dart';
 
-class _PriceChangeCard extends StatelessWidget {
-  const _PriceChangeCard({required this.timePeriod, required this.priceChange});
+class _OverviewCard extends StatelessWidget {
+  const _OverviewCard({required this.timePeriod, required this.priceChange});
 
   final String timePeriod;
   final double priceChange;

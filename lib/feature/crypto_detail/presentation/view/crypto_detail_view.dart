@@ -6,6 +6,7 @@ import 'package:crypto_app/app/widgets/text/text_small.dart';
 import 'package:crypto_app/core/enums/page_status.dart';
 import 'package:crypto_app/core/extensions/context_extensions.dart';
 import 'package:crypto_app/core/extensions/widget_extensions.dart';
+import 'package:crypto_app/core/utils/date_format/date_format_utils.dart';
 import 'package:crypto_app/core/utils/number_format/number_format_utils.dart';
 import 'package:crypto_app/feature/crypto_detail/domain/entities/crypto_detail_entity.dart';
 import 'package:crypto_app/feature/crypto_detail/presentation/cubit/crypto_detail_cubit.dart';
@@ -14,11 +15,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_kit/ui_kit.dart';
 
+part '../widgets/detail_card.dart';
+part '../widgets/detail_list_tile.dart';
+part '../widgets/overview_card.dart';
+part '../widgets/section_details.dart';
+part '../widgets/section_historical_data.dart';
 part '../widgets/success_widget.dart';
-part '../widgets/price_changes_card.dart';
-part '../widgets/price_statistics_card.dart';
-part '../widgets/price_statistics_list_tile.dart';
-part '../widgets/chart_tab_bar.dart';
 
 @RoutePage()
 class CryptoDetailView extends StatelessWidget {
