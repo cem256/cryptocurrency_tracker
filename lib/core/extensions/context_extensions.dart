@@ -57,5 +57,6 @@ extension PaddingExtension on BuildContext {
 
 extension ThemeExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
-  TextTheme get textTheme => theme.textTheme;
+  TextTheme get textTheme => Theme.of(this).textTheme;
+  Brightness get brightness => Theme.of(this).brightness;
 }

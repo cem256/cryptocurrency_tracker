@@ -23,14 +23,18 @@ dependencies:
   # Routing
   auto_route: ^7.3.0
 
+  # Caching
+  hydrated_bloc: ^9.1.2
+
   # Dependency Injection
   injectable: ^2.1.1
   get_it: ^7.6.0
 
   # Utility
   intl: ^0.18.0
+  path_provider: ^2.0.15
   stream_transform: ^2.1.0
-
+  
   # UI
   ui_kit:
     path: packages/ui_kit
