@@ -4,7 +4,7 @@ import 'package:crypto_app/app/theme/cubit/theme_cubit.dart';
 import 'package:crypto_app/app/widgets/failure/failure_widget.dart';
 import 'package:crypto_app/app/widgets/text/text_normal.dart';
 import 'package:crypto_app/app/widgets/text/text_small.dart';
-import 'package:crypto_app/core/enums/page_status.dart';
+import 'package:crypto_app/core/enums/view_status.dart';
 import 'package:crypto_app/core/extensions/context_extensions.dart';
 import 'package:crypto_app/core/utils/number_format/number_format_utils.dart';
 import 'package:crypto_app/feature/crypto/domain/entities/crypto_entity.dart';
@@ -42,12 +42,12 @@ class _CryptoViewBody extends StatelessWidget {
     return BlocBuilder<CryptoBloc, CryptoState>(
       builder: (context, state) {
         return switch (state.status) {
-          PageStatus.loading => const UIKitAdaptiveIndicator(),
-          PageStatus.success => _SuccessWidget(
+          ViewStatus.loading => const UIKitAdaptiveIndicator(),
+          ViewStatus.success => _SuccessWidget(
               cryptocurrencies: state.cryptocurrencies,
               hasReachedMax: state.hasReachedMax,
             ),
-          PageStatus.failure => FailureWidget(
+          ViewStatus.failure => FailureWidget(
               onPressed: () => context.read<CryptoBloc>().add(
                     const CryptoEvent.onCryptocurrenciesFetched(),
                   ),

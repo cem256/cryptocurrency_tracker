@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:crypto_app/app/constants/duration_contants.dart';
-import 'package:crypto_app/core/enums/page_status.dart';
+import 'package:crypto_app/core/enums/view_status.dart';
 import 'package:crypto_app/core/utils/event_transformer/event_transformer_utils.dart';
 import 'package:crypto_app/feature/crypto/domain/entities/crypto_entity.dart';
 import 'package:crypto_app/feature/crypto/domain/usecases/uc_get_all_cryptocurrencies.dart';
@@ -27,15 +27,15 @@ class CryptoBloc extends Bloc<CryptoEvent, CryptoState> {
 
   Future<void> _onCoinsFetched(_Fetched event, Emitter<CryptoState> emit) async {
     if (state.hasReachedMax) return;
-    if (state.status == PageStatus.loading) {
+    if (state.status == ViewStatus.loading) {
       final result = await _ucGetAllCryptocurrencies.execute(page: _page, perPage: _perPage);
-      return result.fold((failure) => emit(state.copyWith(status: PageStatus.failure)), (success) {
+      return result.fold((failure) => emit(state.copyWith(status: ViewStatus.failure)), (success) {
         _page++;
         emit(
           success.isEmpty
               ? state.copyWith(hasReachedMax: true)
               : state.copyWith(
-                  status: PageStatus.success,
+                  status: ViewStatus.success,
                   cryptocurrencies: List.of(state.cryptocurrencies)..addAll(success),
                   hasReachedMax: false,
                 ),
@@ -44,13 +44,13 @@ class CryptoBloc extends Bloc<CryptoEvent, CryptoState> {
     }
 
     final result = await _ucGetAllCryptocurrencies.execute(page: _page, perPage: _perPage);
-    result.fold((failure) => emit(state.copyWith(status: PageStatus.failure)), (success) {
+    result.fold((failure) => emit(state.copyWith(status: ViewStatus.failure)), (success) {
       _page++;
       emit(
         success.isEmpty
             ? state.copyWith(hasReachedMax: true)
             : state.copyWith(
-                status: PageStatus.success,
+                status: ViewStatus.success,
                 cryptocurrencies: List.of(state.cryptocurrencies)..addAll(success),
                 hasReachedMax: false,
               ),

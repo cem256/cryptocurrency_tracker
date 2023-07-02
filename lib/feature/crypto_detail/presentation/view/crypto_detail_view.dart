@@ -3,7 +3,7 @@ import 'package:crypto_app/app/widgets/failure/failure_widget.dart';
 import 'package:crypto_app/app/widgets/text/text_large.dart';
 import 'package:crypto_app/app/widgets/text/text_normal.dart';
 import 'package:crypto_app/app/widgets/text/text_small.dart';
-import 'package:crypto_app/core/enums/page_status.dart';
+import 'package:crypto_app/core/enums/view_status.dart';
 import 'package:crypto_app/core/extensions/context_extensions.dart';
 import 'package:crypto_app/core/extensions/widget_extensions.dart';
 import 'package:crypto_app/core/utils/date_format/date_format_utils.dart';
@@ -60,11 +60,11 @@ class _CryptoDetailViewBody extends StatelessWidget {
       child: BlocBuilder<CryptoDetailCubit, CryptoDetailState>(
         builder: (context, state) {
           return switch (state.status) {
-            PageStatus.loading => const UIKitAdaptiveIndicator(),
-            PageStatus.failure => FailureWidget(
+            ViewStatus.loading => const UIKitAdaptiveIndicator(),
+            ViewStatus.failure => FailureWidget(
                 onPressed: () => context.read<CryptoDetailCubit>().fetchCryptoDetail(id: id),
               ),
-            PageStatus.success => _SuccessWidget(
+            ViewStatus.success => _SuccessWidget(
                 cryptocurrency: state.cryptocurrency,
               )
           };

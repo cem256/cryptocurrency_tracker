@@ -1,9 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stream_transform/stream_transform.dart';
 
-class EventTransformerUtils {
-  EventTransformerUtils._();
-
+abstract final class EventTransformerUtils {
   /// Delays the processing of event until a pause of the specified duration
   static EventTransformer<Event> debounce<Event>(Duration duration) {
     return (events, mapper) => events.debounce(duration).switchMap(mapper);

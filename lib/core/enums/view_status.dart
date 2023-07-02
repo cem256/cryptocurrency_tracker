@@ -1,4 +1,4 @@
-enum PageStatus {
+enum ViewStatus {
   loading,
   success,
   failure,

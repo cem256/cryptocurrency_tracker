@@ -1,9 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 
-class DateFormatUtils {
-  DateFormatUtils._();
-
+abstract final class DateFormatUtils {
   /// Returns the date time as the following format: Nov 10, 2021
   static String getMonthDayYear(String date) {
     try {
