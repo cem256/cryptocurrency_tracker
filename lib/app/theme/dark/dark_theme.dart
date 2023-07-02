@@ -1,7 +1,7 @@
 import 'package:crypto_app/app/theme/base/base_theme.dart';
 import 'package:flutter/material.dart';
 
-class DarkTheme extends BaseTheme {
+final class DarkTheme extends BaseTheme {
   @override
   ColorScheme get colorScheme => _colorScheme;
   // Camarone Green

@@ -13,6 +13,7 @@ class CryptoRepositoryImpl implements CryptoRepository {
   CryptoRepositoryImpl({required CryptoRemoteDataSource remoteDataSource}) : _remoteDataSource = remoteDataSource;
 
   final CryptoRemoteDataSource _remoteDataSource;
+
   @override
   Future<Either<FailureModel, List<CryptoEntity>>> getAllCryptocurrencies({
     required int page,

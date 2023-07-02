@@ -12,7 +12,7 @@ import 'package:crypto_app/feature/crypto/presentation/bloc/crypto_bloc.dart';
 import 'package:crypto_app/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ui_kit/widgets/image/ui_kit_network_image.dart';
+import 'package:ui_kit/ui_kit.dart';
 
 part '../widgets/app_bar.dart';
 part '../widgets/crypto_list_tile.dart';
@@ -42,7 +42,7 @@ class _CryptoViewBody extends StatelessWidget {
     return BlocBuilder<CryptoBloc, CryptoState>(
       builder: (context, state) {
         return switch (state.status) {
-          PageStatus.loading => const Center(child: CircularProgressIndicator.adaptive()),
+          PageStatus.loading => const UIKitAdaptiveIndicator(),
           PageStatus.success => _SuccessWidget(
               cryptocurrencies: state.cryptocurrencies,
               hasReachedMax: state.hasReachedMax,

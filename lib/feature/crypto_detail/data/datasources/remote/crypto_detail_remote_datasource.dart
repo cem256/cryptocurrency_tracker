@@ -4,7 +4,7 @@ import 'package:crypto_app/core/clients/network/network_client.dart';
 import 'package:crypto_app/feature/crypto_detail/data/models/crypto_detail_model.dart';
 import 'package:injectable/injectable.dart';
 
-abstract class CryptoDetailRemoteDataSource {
+abstract interface class CryptoDetailRemoteDataSource {
   Future<CryptoDetailModel> getDetail({required String id});
 }
 

@@ -4,7 +4,7 @@ import 'package:crypto_app/core/clients/network/network_client.dart';
 import 'package:crypto_app/feature/crypto/data/models/crypto_model.dart';
 import 'package:injectable/injectable.dart';
 
-abstract class CryptoRemoteDataSource {
+abstract interface class CryptoRemoteDataSource {
   Future<List<CryptoModel>> getAllCryptocurrencies({required int page, required int perPage});
 }
 

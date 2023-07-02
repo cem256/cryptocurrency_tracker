@@ -43,9 +43,7 @@ class _SearchViewBody extends StatelessWidget {
               SearchStatus.initial => const _CenteredText(
                   text: 'Enter a cryptocurrency name or symbol to get started.',
                 ),
-              SearchStatus.loading => const Center(
-                  child: CircularProgressIndicator.adaptive(),
-                ),
+              SearchStatus.loading => const UIKitAdaptiveIndicator(),
               SearchStatus.failure => const _CenteredText(
                   text: 'Oops! Something went wrong.',
                 ),

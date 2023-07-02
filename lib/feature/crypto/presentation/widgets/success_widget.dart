@@ -45,9 +45,7 @@ class _SuccessWidgetState extends State<_SuccessWidget> {
         itemCount: widget.hasReachedMax ? widget.cryptocurrencies.length : widget.cryptocurrencies.length + 1,
         itemBuilder: (context, index) {
           return index >= widget.cryptocurrencies.length
-              ? const Center(
-                  child: CircularProgressIndicator.adaptive(),
-                )
+              ? const UIKitAdaptiveIndicator()
               : CryptoListTile(cryptocurrency: widget.cryptocurrencies[index]);
         },
         separatorBuilder: (context, index) => const Divider(),

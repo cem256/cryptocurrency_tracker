@@ -60,7 +60,7 @@ class _CryptoDetailViewBody extends StatelessWidget {
       child: BlocBuilder<CryptoDetailCubit, CryptoDetailState>(
         builder: (context, state) {
           return switch (state.status) {
-            PageStatus.loading => const Center(child: CircularProgressIndicator.adaptive()),
+            PageStatus.loading => const UIKitAdaptiveIndicator(),
             PageStatus.failure => FailureWidget(
                 onPressed: () => context.read<CryptoDetailCubit>().fetchCryptoDetail(id: id),
               ),

@@ -3,7 +3,7 @@ import 'package:crypto_app/core/clients/network/network_client.dart';
 import 'package:crypto_app/feature/search/data/models/search_model.dart';
 import 'package:injectable/injectable.dart';
 
-abstract class SearchRemoteDataSource {
+abstract interface class SearchRemoteDataSource {
   Future<List<SearchModel>> search({required String query});
 }
 

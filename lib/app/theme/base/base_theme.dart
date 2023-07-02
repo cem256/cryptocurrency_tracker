@@ -1,7 +1,7 @@
 import 'package:crypto_app/app/theme/constants/theme_constants.dart';
 import 'package:flutter/material.dart';
 
-abstract class BaseTheme {
+abstract base class BaseTheme {
   ColorScheme get colorScheme;
 
   ThemeData get theme {
