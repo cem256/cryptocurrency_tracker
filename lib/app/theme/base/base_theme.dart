@@ -10,6 +10,7 @@ abstract base class BaseTheme {
       colorScheme: colorScheme,
       appBarTheme: _appBarTheme,
       cardTheme: _cardTheme,
+      elevatedButtonTheme: _elevatedButtonTheme,
       listTileTheme: _listTileTheme,
       inputDecorationTheme: _inputDecorationTheme,
     );
@@ -25,6 +26,15 @@ abstract base class BaseTheme {
         shape: OutlineInputBorder(
           borderRadius: ThemeConstants.borderRadiusCircular,
           borderSide: BorderSide.none,
+        ),
+      );
+
+  ElevatedButtonThemeData get _elevatedButtonTheme => ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          minimumSize: const Size.fromHeight(56),
+          shape: RoundedRectangleBorder(
+            borderRadius: ThemeConstants.borderRadiusCircular,
+          ),
         ),
       );
 

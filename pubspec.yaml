@@ -33,6 +33,7 @@ dependencies:
 
   # Utility
   intl: ^0.18.0
+  flutter_svg: ^2.0.4
   path_provider: ^2.0.15
   stream_transform: ^2.1.0
   
@@ -72,5 +73,4 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/fonts/
-    - assets/icons/
+    - assets/svg/

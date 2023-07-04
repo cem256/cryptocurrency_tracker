@@ -39,14 +39,14 @@ class _SearchViewBody extends StatelessWidget {
           builder: (context, state) {
             return switch (state.status) {
               SearchStatus.initial => const CenteredText(
-                  text: 'Enter a cryptocurrency name or symbol to get started.',
+                  text: 'Enter a Cryptocurrency Name or Symbol',
                 ),
               SearchStatus.loading => const UIKitAdaptiveIndicator(),
               SearchStatus.failure => const CenteredText(
                   text: 'Oops! Something went wrong.',
                 ),
               SearchStatus.noResult => CenteredText(
-                  text: "No results found for '${state.query}'",
+                  text: "No Results Found for '${state.query}'",
                 ),
               SearchStatus.success => _SuccessWidget(
                   cryptocurrencies: state.cryptocurrencies,

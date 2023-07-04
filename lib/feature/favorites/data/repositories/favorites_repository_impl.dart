@@ -26,7 +26,8 @@ class FavoritesRepositoryImpl implements FavoritesRepository {
       final favorites = _dataSource.getFavorites();
 
       return right(favorites.map((e) => e.toFavoriteEntity()).toList());
-    } catch (_) {
+    } catch (e) {
+      log('ERROR: FavoritesRepositoryImpl: $e');
       return left(const FailureModel());
     }
   }
