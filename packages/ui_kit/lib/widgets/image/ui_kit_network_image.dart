@@ -15,7 +15,7 @@ class UIKitNetworkImage extends StatelessWidget {
       height: height,
       imageUrl: imageUrl,
       errorWidget: (context, url, error) => errorWidget ?? const Icon(Icons.error),
-      placeholder: (context, url) => placeholder ?? const CircularProgressIndicator.adaptive(),
+      placeholder: (context, url) => Center(child: placeholder ?? const CircularProgressIndicator.adaptive()),
     );
   }
 }

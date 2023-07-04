@@ -6,34 +6,56 @@ import 'package:crypto_app/app/theme/cubit/theme_cubit.dart';
 import 'package:crypto_app/app/theme/dark/dark_theme.dart';
 import 'package:crypto_app/app/theme/light/light_theme.dart';
 import 'package:crypto_app/core/extensions/context_extensions.dart';
+import 'package:crypto_app/core/utils/observer/custom_bloc_observer.dart';
+import 'package:crypto_app/feature/favorites/presentation/cubit/favorites_cubit.dart';
 import 'package:crypto_app/injection.dart' as sl;
+import 'package:crypto_app/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await Hive.initFlutter();
+  Bloc.observer = CustomBlocObserver();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await sl.initDependencies();
 
-  runApp(CryptoApp());
+  final appRouter = AppRouter();
+  final favoritesCubit = getIt<FavoritesCubit>();
+
+  runApp(CryptoApp(appRouter: appRouter, favoritesCubit: favoritesCubit));
 }
 
 class CryptoApp extends StatelessWidget {
-  CryptoApp({super.key});
+  const CryptoApp({
+    required AppRouter appRouter,
+    required FavoritesCubit favoritesCubit,
+    super.key,
+  })  : _appRouter = appRouter,
+        _favoritesCubit = favoritesCubit;
 
-  final _appRouter = AppRouter();
+  final AppRouter _appRouter;
+  final FavoritesCubit _favoritesCubit;
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ThemeCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => ThemeCubit(),
+        ),
+        BlocProvider(
+          create: (_) => _favoritesCubit..init().then((_) => _favoritesCubit.getFavorites()),
+        ),
+      ],
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, themeState) {
           return MaterialApp.router(

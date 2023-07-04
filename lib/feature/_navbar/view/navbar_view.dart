@@ -20,11 +20,11 @@ class NavbarView extends StatelessWidget {
           onTap: tabsRouter.setActiveIndex,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.store_outlined),
+              icon: Icon(Icons.store),
               label: 'Markets',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.star_outline),
+              icon: Icon(Icons.star),
               label: 'Favorites',
             ),
           ],

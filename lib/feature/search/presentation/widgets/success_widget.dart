@@ -13,8 +13,13 @@ class _SuccessWidget extends StatelessWidget {
         itemCount: cryptocurrencies.length,
         separatorBuilder: (context, index) => const Divider(),
         itemBuilder: (context, index) {
-          return _SearchListTile(
-            cryptocurrency: cryptocurrencies[index],
+          final cryptocurrency = cryptocurrencies[index];
+          return CustomListTile(
+            id: cryptocurrency.id,
+            name: cryptocurrency.name,
+            symbol: cryptocurrency.symbol,
+            image: cryptocurrency.image,
+            marketCapRank: cryptocurrency.marketCapRank,
           );
         },
       ),

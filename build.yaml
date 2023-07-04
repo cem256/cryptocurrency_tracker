@@ -1,0 +1,5 @@
+# Allows using hive with freezed
+global_options:
+  freezed:freezed:
+    runs_before:
+    - hive_generator:hive_generator

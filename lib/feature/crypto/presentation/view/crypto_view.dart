@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:crypto_app/app/router/app_router.gr.dart';
 import 'package:crypto_app/app/theme/cubit/theme_cubit.dart';
+import 'package:crypto_app/app/widgets/button/favorites_button.dart';
 import 'package:crypto_app/app/widgets/failure/failure_widget.dart';
 import 'package:crypto_app/app/widgets/text/text_normal.dart';
 import 'package:crypto_app/app/widgets/text/text_small.dart';

@@ -17,7 +17,7 @@ class FailureWidget extends StatelessWidget {
           SizedBox(height: context.mediumValue),
           TextButton.icon(
             onPressed: onPressed,
-            icon: const Icon(Icons.refresh_outlined),
+            icon: const Icon(Icons.refresh),
             label: const TextNormal('Retry'),
           ),
         ],

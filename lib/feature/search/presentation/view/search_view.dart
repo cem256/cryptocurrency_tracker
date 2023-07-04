@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:crypto_app/app/router/app_router.gr.dart';
-import 'package:crypto_app/app/widgets/text/text_normal.dart';
+import 'package:crypto_app/app/widgets/list_tile/custom_list_tile.dart';
+import 'package:crypto_app/app/widgets/text/centered_text.dart';
 import 'package:crypto_app/core/extensions/context_extensions.dart';
 import 'package:crypto_app/feature/search/domain/entities/search_entity.dart';
 import 'package:crypto_app/feature/search/presentation/bloc/search_bloc.dart';
@@ -9,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_kit/ui_kit.dart';
 
-part '../widgets/centered_text.dart';
-part '../widgets/search_list_tile.dart';
 part '../widgets/search_text_field.dart';
 part '../widgets/success_widget.dart';
 
@@ -40,14 +38,14 @@ class _SearchViewBody extends StatelessWidget {
         child: BlocBuilder<SearchBloc, SearchState>(
           builder: (context, state) {
             return switch (state.status) {
-              SearchStatus.initial => const _CenteredText(
+              SearchStatus.initial => const CenteredText(
                   text: 'Enter a cryptocurrency name or symbol to get started.',
                 ),
               SearchStatus.loading => const UIKitAdaptiveIndicator(),
-              SearchStatus.failure => const _CenteredText(
+              SearchStatus.failure => const CenteredText(
                   text: 'Oops! Something went wrong.',
                 ),
-              SearchStatus.noResult => _CenteredText(
+              SearchStatus.noResult => CenteredText(
                   text: "No results found for '${state.query}'",
                 ),
               SearchStatus.success => _SuccessWidget(

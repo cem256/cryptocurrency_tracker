@@ -1,7 +1,9 @@
-part of '../view/search_view.dart';
+import 'package:crypto_app/app/widgets/text/text_normal.dart';
+import 'package:crypto_app/core/extensions/context_extensions.dart';
+import 'package:flutter/material.dart';
 
-class _CenteredText extends StatelessWidget {
-  const _CenteredText({required this.text});
+class CenteredText extends StatelessWidget {
+  const CenteredText({required this.text, super.key});
 
   final String text;
 

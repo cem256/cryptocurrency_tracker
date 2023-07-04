@@ -12,14 +12,17 @@ class CryptoListTile extends StatelessWidget {
       leading: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          IconButton(
-            icon: const Icon(Icons.star_outline),
-            onPressed: () {},
+          FavoritesButton(
+            id: cryptocurrency.id,
+            name: cryptocurrency.name,
+            symbol: cryptocurrency.symbol,
+            image: cryptocurrency.image,
+            marketCapRank: cryptocurrency.marketCapRank,
           ),
           UIKitNetworkImage(
             height: context.highValue,
             imageUrl: cryptocurrency.image,
-            errorWidget: const Icon(Icons.error_outline),
+            errorWidget: const Icon(Icons.error),
           ),
         ],
       ),

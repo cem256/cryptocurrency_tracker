@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:crypto_app/app/widgets/button/favorites_button.dart';
 import 'package:crypto_app/app/widgets/failure/failure_widget.dart';
 import 'package:crypto_app/app/widgets/text/text_large.dart';
 import 'package:crypto_app/app/widgets/text/text_normal.dart';
@@ -34,12 +35,6 @@ class CryptoDetailView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(name),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.star_outline),
-          )
-        ],
       ),
       body: BlocProvider(
         create: (context) => getIt<CryptoDetailCubit>()..fetchCryptoDetail(id: id),
