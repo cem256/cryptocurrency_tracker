@@ -5,7 +5,8 @@ import 'package:crypto_app/app/router/app_router.gr.dart';
 class AppRouter extends $AppRouter {
   @override
   List<AdaptiveRoute> get routes => [
-        AdaptiveRoute(initial: true, page: OnboardingRoute.page),
+        AdaptiveRoute(initial: true, page: SplashRoute.page),
+        AdaptiveRoute(page: OnboardingRoute.page),
         AdaptiveRoute(
           page: NavbarRoute.page,
           children: [

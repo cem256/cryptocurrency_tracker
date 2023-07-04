@@ -14,6 +14,7 @@ class OnboardingLocalDataSourceImpl implements OnboardingLocalDataSource {
 
   @override
   Future<void> completeOnboarding() async {
+    await _cacheClient.init();
     await _cacheClient.put(CacheConstants.onboardingKey, true);
   }
 }

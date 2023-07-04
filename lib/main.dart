@@ -21,29 +21,21 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Hive.initFlutter();
-  Bloc.observer = CustomBlocObserver();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
   await sl.initDependencies();
+  Bloc.observer = CustomBlocObserver();
 
-  final appRouter = AppRouter();
-  final favoritesCubit = getIt<FavoritesCubit>();
-
-  runApp(CryptoApp(appRouter: appRouter, favoritesCubit: favoritesCubit));
+  runApp(CryptoApp());
 }
 
 class CryptoApp extends StatelessWidget {
-  const CryptoApp({
-    required AppRouter appRouter,
-    required FavoritesCubit favoritesCubit,
-    super.key,
-  })  : _appRouter = appRouter,
-        _favoritesCubit = favoritesCubit;
+  CryptoApp({super.key});
 
-  final AppRouter _appRouter;
-  final FavoritesCubit _favoritesCubit;
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +45,7 @@ class CryptoApp extends StatelessWidget {
           create: (_) => ThemeCubit(),
         ),
         BlocProvider(
-          create: (_) => _favoritesCubit..init().then((_) => _favoritesCubit.getFavorites()),
+          create: (_) => getIt<FavoritesCubit>(),
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeState>(
