@@ -1,5 +1,5 @@
-import 'package:crypto_app/feature/splash/data/data_sources/local/splash_local_data_source.dart';
-import 'package:crypto_app/feature/splash/domain/repositories/splash_repository.dart';
+import 'package:cryptocurrency_tracker/feature/splash/data/data_sources/local/splash_local_data_source.dart';
+import 'package:cryptocurrency_tracker/feature/splash/domain/repositories/splash_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: SplashRepository)

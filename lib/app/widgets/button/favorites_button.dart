@@ -1,6 +1,6 @@
-import 'package:crypto_app/core/extensions/context_extensions.dart';
-import 'package:crypto_app/feature/favorites/domain/models/favorite_entity.dart';
-import 'package:crypto_app/feature/favorites/presentation/cubit/favorites_cubit.dart';
+import 'package:cryptocurrency_tracker/core/extensions/context_extensions.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/domain/models/favorite_entity.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/presentation/cubit/favorites_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

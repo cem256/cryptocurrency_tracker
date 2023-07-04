@@ -1,4 +1,4 @@
-import 'package:crypto_app/feature/crypto_detail/domain/entities/crypto_detail_entity.dart';
+import 'package:cryptocurrency_tracker/feature/crypto_detail/domain/entities/crypto_detail_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'crypto_detail_model.freezed.dart';

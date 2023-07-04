@@ -1,4 +1,4 @@
-import 'package:crypto_app/feature/favorites/data/models/favorite_model.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/data/models/favorite_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'favorite_entity.freezed.dart';

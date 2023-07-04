@@ -1,7 +1,7 @@
 // ignore_for_file: cascade_invocations
 
-import 'package:crypto_app/feature/favorites/domain/models/favorite_entity.dart';
-import 'package:crypto_app/feature/favorites/domain/usecases/uc_favorites.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/domain/models/favorite_entity.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/domain/usecases/uc_favorites.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

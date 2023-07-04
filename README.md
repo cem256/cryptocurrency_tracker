@@ -1,4 +1,4 @@
-# crypto_app
+# cryptocurrency_tracker
 
 A new Flutter project.
 

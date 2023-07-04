@@ -1,5 +1,5 @@
-import 'package:crypto_app/feature/onboarding/data/datasources/local/onboarding_local_data_source.dart';
-import 'package:crypto_app/feature/onboarding/domain/repositories/onboarding_repository.dart';
+import 'package:cryptocurrency_tracker/feature/onboarding/data/datasources/local/onboarding_local_data_source.dart';
+import 'package:cryptocurrency_tracker/feature/onboarding/domain/repositories/onboarding_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: OnboardingRepository)

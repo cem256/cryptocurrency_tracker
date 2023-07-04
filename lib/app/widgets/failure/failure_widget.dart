@@ -1,5 +1,5 @@
-import 'package:crypto_app/app/widgets/text/text_normal.dart';
-import 'package:crypto_app/core/extensions/context_extensions.dart';
+import 'package:cryptocurrency_tracker/app/widgets/text/text_normal.dart';
+import 'package:cryptocurrency_tracker/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class FailureWidget extends StatelessWidget {

@@ -1,6 +1,6 @@
-import 'package:crypto_app/core/models/failure/failure_model.dart';
-import 'package:crypto_app/feature/crypto/domain/entities/crypto_entity.dart';
-import 'package:crypto_app/feature/crypto/domain/repositores/crypto_repository.dart';
+import 'package:cryptocurrency_tracker/core/models/failure/failure_model.dart';
+import 'package:cryptocurrency_tracker/feature/crypto/domain/entities/crypto_entity.dart';
+import 'package:cryptocurrency_tracker/feature/crypto/domain/repositores/crypto_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 

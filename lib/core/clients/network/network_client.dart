@@ -1,4 +1,4 @@
-import 'package:crypto_app/app/constants/api_constants.dart';
+import 'package:cryptocurrency_tracker/app/constants/api_constants.dart';
 
 import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';

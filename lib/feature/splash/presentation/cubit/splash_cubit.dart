@@ -1,4 +1,4 @@
-import 'package:crypto_app/feature/splash/domain/usecases/check_is_onboarding_completed_use_case.dart';
+import 'package:cryptocurrency_tracker/feature/splash/domain/usecases/check_is_onboarding_completed_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

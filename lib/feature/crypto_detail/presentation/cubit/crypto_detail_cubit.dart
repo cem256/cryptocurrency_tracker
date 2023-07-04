@@ -1,6 +1,6 @@
-import 'package:crypto_app/core/enums/view_status.dart';
-import 'package:crypto_app/feature/crypto_detail/domain/entities/crypto_detail_entity.dart';
-import 'package:crypto_app/feature/crypto_detail/domain/usecases/uc_get_crypto_detail.dart';
+import 'package:cryptocurrency_tracker/core/enums/view_status.dart';
+import 'package:cryptocurrency_tracker/feature/crypto_detail/domain/entities/crypto_detail_entity.dart';
+import 'package:cryptocurrency_tracker/feature/crypto_detail/domain/usecases/uc_get_crypto_detail.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

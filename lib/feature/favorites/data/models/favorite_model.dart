@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:crypto_app/app/constants/cache_constants.dart';
-import 'package:crypto_app/feature/favorites/domain/models/favorite_entity.dart';
+import 'package:cryptocurrency_tracker/app/constants/cache_constants.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/domain/models/favorite_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/adapters.dart';
 

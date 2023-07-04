@@ -1,4 +1,4 @@
-import 'package:crypto_app/app/theme/constants/theme_constants.dart';
+import 'package:cryptocurrency_tracker/app/theme/constants/theme_constants.dart';
 import 'package:flutter/material.dart';
 
 abstract base class BaseTheme {

@@ -1,4 +1,4 @@
-name: crypto_app
+name: cryptocurrency_tracker
 description: A new flutter project
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -47,10 +47,15 @@ dependencies:
 
   # Functional programming
   dartz: ^0.10.1
+  
 
   # Localization
   flutter_localizations:
     sdk: flutter
+
+  # App icons
+  flutter_native_splash: ^2.3.1
+  flutter_launcher_icons: ^0.13.1
 
 
 
@@ -68,9 +73,27 @@ dev_dependencies:
   auto_route_generator: ^7.1.1
   injectable_generator: ^2.1.5
 
+
+flutter_native_splash:
+  android: true
+  ios: true
+  android12: true
+  color: "#F8FBF8"
+  image: "assets/logo/logo_no_bg.png"
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/logo/logo.png"
+  adaptive_icon_background: "#F8FBF8"
+  # Padding 8%
+  adaptive_icon_foreground: "assets/logo/logo_foreground.png"
+
 flutter:
   generate: true
   uses-material-design: true
 
   assets:
     - assets/svg/
+    - assets/logo/

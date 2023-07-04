@@ -1,5 +1,5 @@
-import 'package:crypto_app/app/constants/cache_constants.dart';
-import 'package:crypto_app/core/clients/cache/primitive_cache_client_interface.dart';
+import 'package:cryptocurrency_tracker/app/constants/cache_constants.dart';
+import 'package:cryptocurrency_tracker/core/clients/cache/primitive_cache_client_interface.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable()

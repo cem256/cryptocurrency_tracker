@@ -1,15 +1,15 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:crypto_app/app/router/app_router.gr.dart';
-import 'package:crypto_app/app/widgets/text/text_large.dart';
-import 'package:crypto_app/app/widgets/text/text_normal.dart';
-import 'package:crypto_app/core/extensions/context_extensions.dart';
-import 'package:crypto_app/core/extensions/widget_extensions.dart';
-import 'package:crypto_app/feature/onboarding/presentation/cubit/onboarding_cubit.dart';
-import 'package:crypto_app/feature/onboarding/presentation/model/onboarding_model.dart';
-import 'package:crypto_app/feature/onboarding/presentation/widgets/dots_indicator.dart';
-import 'package:crypto_app/injection.dart';
+import 'package:cryptocurrency_tracker/app/router/app_router.gr.dart';
+import 'package:cryptocurrency_tracker/app/widgets/text/text_large.dart';
+import 'package:cryptocurrency_tracker/app/widgets/text/text_normal.dart';
+import 'package:cryptocurrency_tracker/core/extensions/context_extensions.dart';
+import 'package:cryptocurrency_tracker/core/extensions/widget_extensions.dart';
+import 'package:cryptocurrency_tracker/feature/onboarding/presentation/cubit/onboarding_cubit.dart';
+import 'package:cryptocurrency_tracker/feature/onboarding/presentation/model/onboarding_model.dart';
+import 'package:cryptocurrency_tracker/feature/onboarding/presentation/widgets/dots_indicator.dart';
+import 'package:cryptocurrency_tracker/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';

@@ -1,4 +1,4 @@
-import 'package:crypto_app/app/constants/asset_constants.dart';
+import 'package:cryptocurrency_tracker/app/constants/asset_constants.dart';
 
 class OnboardingModel {
   const OnboardingModel({

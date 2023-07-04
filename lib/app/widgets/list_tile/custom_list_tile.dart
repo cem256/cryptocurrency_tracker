@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:crypto_app/app/router/app_router.gr.dart';
-import 'package:crypto_app/app/widgets/button/favorites_button.dart';
-import 'package:crypto_app/app/widgets/text/text_normal.dart';
-import 'package:crypto_app/core/extensions/context_extensions.dart';
+import 'package:cryptocurrency_tracker/app/router/app_router.gr.dart';
+import 'package:cryptocurrency_tracker/app/widgets/button/favorites_button.dart';
+import 'package:cryptocurrency_tracker/app/widgets/text/text_normal.dart';
+import 'package:cryptocurrency_tracker/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_kit/widgets/image/ui_kit_network_image.dart';
 

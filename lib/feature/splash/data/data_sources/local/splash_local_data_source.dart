@@ -1,5 +1,5 @@
-import 'package:crypto_app/app/constants/cache_constants.dart';
-import 'package:crypto_app/feature/splash/data/data_sources/local/splash_cache_client.dart';
+import 'package:cryptocurrency_tracker/app/constants/cache_constants.dart';
+import 'package:cryptocurrency_tracker/feature/splash/data/data_sources/local/splash_cache_client.dart';
 
 import 'package:injectable/injectable.dart';
 

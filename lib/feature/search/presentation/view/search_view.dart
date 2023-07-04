@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:crypto_app/app/widgets/list_tile/custom_list_tile.dart';
-import 'package:crypto_app/app/widgets/text/centered_text.dart';
-import 'package:crypto_app/core/extensions/context_extensions.dart';
-import 'package:crypto_app/feature/search/domain/entities/search_entity.dart';
-import 'package:crypto_app/feature/search/presentation/bloc/search_bloc.dart';
-import 'package:crypto_app/injection.dart';
+import 'package:cryptocurrency_tracker/app/widgets/list_tile/custom_list_tile.dart';
+import 'package:cryptocurrency_tracker/app/widgets/text/centered_text.dart';
+import 'package:cryptocurrency_tracker/core/extensions/context_extensions.dart';
+import 'package:cryptocurrency_tracker/feature/search/domain/entities/search_entity.dart';
+import 'package:cryptocurrency_tracker/feature/search/presentation/bloc/search_bloc.dart';
+import 'package:cryptocurrency_tracker/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_kit/ui_kit.dart';

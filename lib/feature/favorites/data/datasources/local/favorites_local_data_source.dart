@@ -1,5 +1,5 @@
-import 'package:crypto_app/feature/favorites/data/datasources/local/favorites_cache_client.dart';
-import 'package:crypto_app/feature/favorites/data/models/favorite_model.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/data/datasources/local/favorites_cache_client.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/data/models/favorite_model.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class FavoritesLocalDataSource {

@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:crypto_app/app/router/app_router.gr.dart';
+import 'package:cryptocurrency_tracker/app/router/app_router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'View,Route')
 class AppRouter extends $AppRouter {

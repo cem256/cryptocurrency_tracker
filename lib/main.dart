@@ -1,15 +1,15 @@
-import 'package:crypto_app/app/constants/string_constants.dart';
-import 'package:crypto_app/app/l10n/l10n.dart';
-import 'package:crypto_app/app/router/app_router.dart';
-import 'package:crypto_app/app/router/custom_route_observer.dart';
-import 'package:crypto_app/app/theme/cubit/theme_cubit.dart';
-import 'package:crypto_app/app/theme/dark/dark_theme.dart';
-import 'package:crypto_app/app/theme/light/light_theme.dart';
-import 'package:crypto_app/core/extensions/context_extensions.dart';
-import 'package:crypto_app/core/utils/observer/custom_bloc_observer.dart';
-import 'package:crypto_app/feature/favorites/presentation/cubit/favorites_cubit.dart';
-import 'package:crypto_app/injection.dart' as sl;
-import 'package:crypto_app/injection.dart';
+import 'package:cryptocurrency_tracker/app/constants/string_constants.dart';
+import 'package:cryptocurrency_tracker/app/l10n/l10n.dart';
+import 'package:cryptocurrency_tracker/app/router/app_router.dart';
+import 'package:cryptocurrency_tracker/app/router/custom_route_observer.dart';
+import 'package:cryptocurrency_tracker/app/theme/cubit/theme_cubit.dart';
+import 'package:cryptocurrency_tracker/app/theme/dark/dark_theme.dart';
+import 'package:cryptocurrency_tracker/app/theme/light/light_theme.dart';
+import 'package:cryptocurrency_tracker/core/extensions/context_extensions.dart';
+import 'package:cryptocurrency_tracker/core/utils/observer/custom_bloc_observer.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/presentation/cubit/favorites_cubit.dart';
+import 'package:cryptocurrency_tracker/injection.dart' as sl;
+import 'package:cryptocurrency_tracker/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,11 +29,11 @@ Future<void> main() async {
   await sl.initDependencies();
   Bloc.observer = CustomBlocObserver();
 
-  runApp(CryptoApp());
+  runApp(CryptocurrencyTracker());
 }
 
-class CryptoApp extends StatelessWidget {
-  CryptoApp({super.key});
+class CryptocurrencyTracker extends StatelessWidget {
+  CryptocurrencyTracker({super.key});
 
   final _appRouter = AppRouter();
 

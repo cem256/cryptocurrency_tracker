@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:crypto_app/app/constants/duration_contants.dart';
-import 'package:crypto_app/core/enums/view_status.dart';
-import 'package:crypto_app/core/utils/event_transformer/event_transformer_utils.dart';
-import 'package:crypto_app/feature/crypto/domain/entities/crypto_entity.dart';
-import 'package:crypto_app/feature/crypto/domain/usecases/uc_get_all_cryptocurrencies.dart';
+import 'package:cryptocurrency_tracker/app/constants/duration_contants.dart';
+import 'package:cryptocurrency_tracker/core/enums/view_status.dart';
+import 'package:cryptocurrency_tracker/core/utils/event_transformer/event_transformer_utils.dart';
+import 'package:cryptocurrency_tracker/feature/crypto/domain/entities/crypto_entity.dart';
+import 'package:cryptocurrency_tracker/feature/crypto/domain/usecases/uc_get_all_cryptocurrencies.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

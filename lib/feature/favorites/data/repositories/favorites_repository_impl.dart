@@ -1,11 +1,11 @@
 import 'dart:developer';
 
-import 'package:crypto_app/core/models/failure/failure_model.dart';
+import 'package:cryptocurrency_tracker/core/models/failure/failure_model.dart';
 
-import 'package:crypto_app/feature/favorites/data/datasources/local/favorites_local_data_source.dart';
-import 'package:crypto_app/feature/favorites/data/models/favorite_model.dart';
-import 'package:crypto_app/feature/favorites/domain/models/favorite_entity.dart';
-import 'package:crypto_app/feature/favorites/domain/repositories/favorites_repository.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/data/datasources/local/favorites_local_data_source.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/data/models/favorite_model.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/domain/models/favorite_entity.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/domain/repositories/favorites_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 

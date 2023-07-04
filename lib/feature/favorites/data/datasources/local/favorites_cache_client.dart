@@ -1,6 +1,6 @@
-import 'package:crypto_app/app/constants/cache_constants.dart';
-import 'package:crypto_app/core/clients/cache/cache_client_interface.dart';
-import 'package:crypto_app/feature/favorites/data/models/favorite_model.dart';
+import 'package:cryptocurrency_tracker/app/constants/cache_constants.dart';
+import 'package:cryptocurrency_tracker/core/clients/cache/cache_client_interface.dart';
+import 'package:cryptocurrency_tracker/feature/favorites/data/models/favorite_model.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable()

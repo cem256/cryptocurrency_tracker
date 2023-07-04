@@ -1,4 +1,4 @@
-import 'package:crypto_app/feature/onboarding/domain/repositories/onboarding_repository.dart';
+import 'package:cryptocurrency_tracker/feature/onboarding/domain/repositories/onboarding_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable

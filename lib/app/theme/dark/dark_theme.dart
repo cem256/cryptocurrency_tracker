@@ -1,4 +1,4 @@
-import 'package:crypto_app/app/theme/base/base_theme.dart';
+import 'package:cryptocurrency_tracker/app/theme/base/base_theme.dart';
 import 'package:flutter/material.dart';
 
 final class DarkTheme extends BaseTheme {

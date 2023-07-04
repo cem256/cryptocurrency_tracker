@@ -1,7 +1,7 @@
-import 'package:crypto_app/app/constants/api_constants.dart';
-import 'package:crypto_app/core/clients/network/network_client.dart';
+import 'package:cryptocurrency_tracker/app/constants/api_constants.dart';
+import 'package:cryptocurrency_tracker/core/clients/network/network_client.dart';
 
-import 'package:crypto_app/feature/crypto_detail/data/models/crypto_detail_model.dart';
+import 'package:cryptocurrency_tracker/feature/crypto_detail/data/models/crypto_detail_model.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class CryptoDetailRemoteDataSource {

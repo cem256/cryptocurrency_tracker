@@ -1,4 +1,4 @@
-import 'package:crypto_app/core/extensions/context_extensions.dart';
+import 'package:cryptocurrency_tracker/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class TextLarge extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:crypto_app/feature/splash/domain/repositories/splash_repository.dart';
+import 'package:cryptocurrency_tracker/feature/splash/domain/repositories/splash_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
