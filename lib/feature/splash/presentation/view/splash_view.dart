@@ -7,6 +7,7 @@ import 'package:cryptocurrency_tracker/feature/splash/presentation/cubit/splash_
 import 'package:cryptocurrency_tracker/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 @RoutePage()
 class SplashView extends StatelessWidget {
@@ -45,11 +46,12 @@ class _SplashViewBodyState extends State<_SplashViewBody> {
       await context.read<FavoritesCubit>().init().then((_) => context.read<FavoritesCubit>().getFavorites());
       //navigate to route depending on onboarding state
       if (context.mounted && (context.read<SplashCubit>().state.isOnboardingCompleted ?? false)) {
-        await context.router.replace(const NavbarRoute());
+        unawaited(context.router.replace(const NavbarRoute()));
       } else {
-        await context.router.replace(const OnboardingRoute());
+        unawaited(context.router.replace(const OnboardingRoute()));
       }
     }
+    FlutterNativeSplash.remove();
   }
 
   @override

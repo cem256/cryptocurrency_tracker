@@ -1,0 +1,52 @@
+{
+  "onboarding": {
+    "infoTitle1": "View Top Cryptocurrencies",
+    "infoDescription1": "Stay updated with the latest prices of top cryptocurrencies",
+    "infoTitle2": "Save Your Favorites",
+    "infoDescription2": "Bookmark and track your favorite cryptocurrencies",
+    "infoTitle3": "Discover New Ones",
+    "infoDescription3": "Discover thousands of cryptocurrencies with search functionality",
+    "getStarted": "Get Started"
+  },
+  "errors": {
+    "somethingWentWrong": "Oops! Something Went Wrong.",
+    "retry": "Retry"
+  },
+  "common": {
+    "market_cap_rank": "#{}",
+    "percentChange": "{}%"
+  },
+  "navbar_view": {
+    "markets": "Markets",
+    "favorites": "Favorites"
+  },
+
+  "crypto_view": {
+    "appbar_title": "Markets"
+  },
+  "crypto_details_view": {
+    "overview": "{} Overview",
+    "24H": "24H",
+    "7D": "7D",
+    "1M": "1M",
+    "1Y": "1Y",
+    "details": "{} Details",
+    "rank": "Rank",
+    "price": "Price",
+    "market_cap": "Markets Cap",
+    "trading_volume_24H": "Trading Volume 24H",
+    "historical_data": "{} Historical Data",
+    "ath": "ATH",
+    "ath_change": "ATH Change",
+    "ath_date": "ATH Date"
+  },
+  "favorites_view": {
+    "appbar_title": "Favorites",
+    "noFavorites": "You Don't Have Any Favorites"
+  },
+  "search_view": {
+    "search_bar_hint": "Search",
+    "enter_name_or_symbol": "Enter a Cryptocurrency Name or Symbol",
+    "no_results_found": "No Results Found for '{}'"
+  }
+}

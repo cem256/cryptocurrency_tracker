@@ -48,10 +48,8 @@ dependencies:
   # Functional programming
   dartz: ^0.10.1
   
-
   # Localization
-  flutter_localizations:
-    sdk: flutter
+  easy_localization: ^3.0.2
 
   # App icons
   flutter_native_splash: ^2.3.1
@@ -97,3 +95,4 @@ flutter:
   assets:
     - assets/svg/
     - assets/logo/
+    - assets/translations/

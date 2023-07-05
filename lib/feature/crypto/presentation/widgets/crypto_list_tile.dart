@@ -45,7 +45,7 @@ class CryptoListTile extends StatelessWidget {
                 NumberFormatUtils.getCurrency(value: cryptocurrency.currentPrice),
               ),
               TextNormal(
-                '${cryptocurrency.priceChange24h.toStringAsFixed(2)}%',
+                LocaleKeys.common_percentChange.tr(args: [cryptocurrency.priceChange24h.toStringAsFixed(2)]),
                 style: context.textTheme.bodyLarge?.copyWith(
                   color: cryptocurrency.priceChange24h.isNegative
                       ? context.theme.colorScheme.error

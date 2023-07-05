@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:cryptocurrency_tracker/app/l10n/app_l10n.g.dart';
 import 'package:cryptocurrency_tracker/app/router/app_router.gr.dart';
 import 'package:cryptocurrency_tracker/app/widgets/text/text_large.dart';
 import 'package:cryptocurrency_tracker/app/widgets/text/text_normal.dart';
@@ -10,6 +11,7 @@ import 'package:cryptocurrency_tracker/feature/onboarding/presentation/cubit/onb
 import 'package:cryptocurrency_tracker/feature/onboarding/presentation/model/onboarding_model.dart';
 import 'package:cryptocurrency_tracker/feature/onboarding/presentation/widgets/dots_indicator.dart';
 import 'package:cryptocurrency_tracker/injection.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -70,7 +72,7 @@ class _OnboardingViewBody extends StatelessWidget {
                       unawaited(context.router.replace(const NavbarRoute()));
                     }
                   },
-                  child: const Text('Get Started'),
+                  child: TextNormal(LocaleKeys.onboarding_getStarted.tr()),
                 ),
               ],
             );

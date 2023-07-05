@@ -23,7 +23,9 @@ class _SuccessWidget extends StatelessWidget {
                 SizedBox(
                   width: context.mediumValue,
                 ),
-                TextLarge('${cryptocurrency.symbol.toUpperCase()} Overview'),
+                TextLarge(
+                  LocaleKeys.crypto_details_view_overview.tr(args: [cryptocurrency.symbol.toUpperCase()]),
+                ),
                 const Spacer(),
                 FavoritesButton(
                   id: cryptocurrency.id,
@@ -37,17 +39,29 @@ class _SuccessWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _OverviewCard(timePeriod: '24H', priceChange: cryptocurrency.priceChange24h),
-                _OverviewCard(timePeriod: '7D', priceChange: cryptocurrency.priceChange7d),
-                _OverviewCard(timePeriod: '1M', priceChange: cryptocurrency.priceChange30d),
-                _OverviewCard(timePeriod: '1Y', priceChange: cryptocurrency.priceChange1y),
+                _OverviewCard(
+                  timePeriod: LocaleKeys.crypto_details_view_24H.tr(),
+                  priceChange: cryptocurrency.priceChange24h,
+                ),
+                _OverviewCard(
+                  timePeriod: LocaleKeys.crypto_details_view_7D.tr(),
+                  priceChange: cryptocurrency.priceChange7d,
+                ),
+                _OverviewCard(
+                  timePeriod: LocaleKeys.crypto_details_view_1M.tr(),
+                  priceChange: cryptocurrency.priceChange30d,
+                ),
+                _OverviewCard(
+                  timePeriod: LocaleKeys.crypto_details_view_1Y.tr(),
+                  priceChange: cryptocurrency.priceChange1y,
+                ),
               ],
             ),
-            TextLarge('${cryptocurrency.symbol.toUpperCase()} Details'),
+            TextLarge(LocaleKeys.crypto_details_view_details.tr(args: [cryptocurrency.symbol.toUpperCase()])),
             _DetailCard(
               child: _SectionDetails(cryptocurrency: cryptocurrency),
             ),
-            TextLarge('${cryptocurrency.symbol.toUpperCase()} Historical Data'),
+            TextLarge(LocaleKeys.crypto_details_view_historical_data.tr(args: [cryptocurrency.symbol.toUpperCase()])),
             _DetailCard(
               child: _SectionHistoricalData(cryptocurrency: cryptocurrency),
             ),

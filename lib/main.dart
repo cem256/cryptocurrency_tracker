@@ -1,5 +1,4 @@
-import 'package:cryptocurrency_tracker/app/constants/string_constants.dart';
-import 'package:cryptocurrency_tracker/app/l10n/l10n.dart';
+import 'package:cryptocurrency_tracker/app/l10n/app_l10n.dart';
 import 'package:cryptocurrency_tracker/app/router/app_router.dart';
 import 'package:cryptocurrency_tracker/app/router/custom_route_observer.dart';
 import 'package:cryptocurrency_tracker/app/theme/cubit/theme_cubit.dart';
@@ -10,26 +9,40 @@ import 'package:cryptocurrency_tracker/core/utils/observer/custom_bloc_observer.
 import 'package:cryptocurrency_tracker/feature/favorites/presentation/cubit/favorites_cubit.dart';
 import 'package:cryptocurrency_tracker/injection.dart' as sl;
 import 'package:cryptocurrency_tracker/injection.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  final widgetBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetBinding);
 
-  await Hive.initFlutter();
+  Bloc.observer = CustomBlocObserver();
+
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
+  await Hive.initFlutter();
   await sl.initDependencies();
-  Bloc.observer = CustomBlocObserver();
+  await EasyLocalization.ensureInitialized();
 
-  runApp(CryptocurrencyTracker());
+  await SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp],
+  );
+
+  runApp(
+    EasyLocalization(
+      path: AppL10n.path,
+      supportedLocales: AppL10n.supportedLocales,
+      fallbackLocale: AppL10n.en,
+      child: CryptocurrencyTracker(),
+    ),
+  );
 }
 
 class CryptocurrencyTracker extends StatelessWidget {
@@ -51,9 +64,6 @@ class CryptocurrencyTracker extends StatelessWidget {
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, themeState) {
           return MaterialApp.router(
-            // App Name
-            title: StringConstants.appName,
-
             debugShowCheckedModeBanner: false,
 
             // Theme
@@ -62,8 +72,9 @@ class CryptocurrencyTracker extends StatelessWidget {
             themeMode: themeState.themeMode,
 
             // Localization
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-            supportedLocales: AppLocalizations.supportedLocales,
+            locale: context.locale,
+            supportedLocales: context.supportedLocales,
+            localizationsDelegates: context.localizationDelegates,
 
             // Routing
             routerConfig: _appRouter.config(

@@ -9,7 +9,7 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text('Markets'),
+      title: Text(LocaleKeys.crypto_view_appbar_title.tr()),
       leading: IconButton(
         icon: Icon(context.brightness == Brightness.dark ? Icons.light_mode : Icons.dark_mode),
         onPressed: () => context.read<ThemeCubit>().changeTheme(brightness: context.brightness),

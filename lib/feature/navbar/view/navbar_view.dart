@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cryptocurrency_tracker/app/l10n/app_l10n.g.dart';
 import 'package:cryptocurrency_tracker/app/router/app_router.gr.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -18,14 +20,14 @@ class NavbarView extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           currentIndex: tabsRouter.activeIndex,
           onTap: tabsRouter.setActiveIndex,
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.store),
-              label: 'Markets',
+              icon: const Icon(Icons.store),
+              label: LocaleKeys.navbar_view_markets.tr(),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.star),
-              label: 'Favorites',
+              icon: const Icon(Icons.star),
+              label: LocaleKeys.navbar_view_favorites.tr(),
             ),
           ],
         );

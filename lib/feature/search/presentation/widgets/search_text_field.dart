@@ -31,7 +31,7 @@ class _SearchTextFieldState extends State<_SearchTextField> {
             context.read<SearchBloc>().add(const SearchEvent.onSearchFieldCleared());
           },
         ),
-        hintText: 'Search',
+        hintText: LocaleKeys.search_view_search_bar_hint.tr(),
       ),
       onChanged: (query) => context.read<SearchBloc>().add(SearchEvent.onQueryChanged(query: query)),
     );

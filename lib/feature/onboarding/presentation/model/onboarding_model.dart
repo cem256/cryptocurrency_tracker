@@ -1,4 +1,6 @@
 import 'package:cryptocurrency_tracker/app/constants/asset_constants.dart';
+import 'package:cryptocurrency_tracker/app/l10n/app_l10n.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class OnboardingModel {
   const OnboardingModel({
@@ -11,21 +13,21 @@ class OnboardingModel {
   final String title;
   final String description;
 
-  static const List<OnboardingModel> items = [
+  static List<OnboardingModel> items = [
     OnboardingModel(
       imagePath: AssestConstants.onboarding1,
-      title: 'View Top Cryptocurrencies',
-      description: 'Stay updated with the latest prices of top cryptocurrencies',
+      title: LocaleKeys.onboarding_infoTitle1.tr(),
+      description: LocaleKeys.onboarding_infoDescription1.tr(),
     ),
     OnboardingModel(
       imagePath: AssestConstants.onboarding2,
-      title: 'Save Your Favorites',
-      description: 'Bookmark and track your favorite cryptocurrencies',
+      title: LocaleKeys.onboarding_infoTitle2.tr(),
+      description: LocaleKeys.onboarding_infoDescription2.tr(),
     ),
     OnboardingModel(
       imagePath: AssestConstants.onboarding3,
-      title: 'Discover New Ones',
-      description: 'Discover thousands of cryptocurrencies with search functionality',
+      title: LocaleKeys.onboarding_infoTitle3.tr(),
+      description: LocaleKeys.onboarding_infoDescription3.tr(),
     ),
   ];
 }

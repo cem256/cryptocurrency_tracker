@@ -11,17 +11,17 @@ class _SectionHistoricalData extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _DetailListTile(
-          leading: 'ATH',
+          leading: LocaleKeys.crypto_details_view_ath.tr(),
           trailing: NumberFormatUtils.getCurrency(value: cryptocurrency.ath),
         ),
         const Divider(),
         _DetailListTile(
-          leading: 'ATH Change',
-          trailing: '${cryptocurrency.athChange}%',
+          leading: LocaleKeys.crypto_details_view_ath_change.tr(),
+          trailing: LocaleKeys.common_percentChange.tr(args: [cryptocurrency.athChange.toString()]),
         ),
         const Divider(),
         _DetailListTile(
-          leading: 'ATH Date',
+          leading: LocaleKeys.crypto_details_view_ath_date.tr(),
           trailing: DateFormatUtils.getMonthDayYear(cryptocurrency.athDate),
         ),
       ],
