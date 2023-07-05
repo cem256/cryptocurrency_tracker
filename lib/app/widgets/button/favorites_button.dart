@@ -24,14 +24,16 @@ class FavoritesButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FavoritesCubit, FavoritesState>(
       builder: (context, state) {
-        return IconButton(
-          onPressed: () => context.read<FavoritesCubit>().favoritesButtonClicked(
+        return GestureDetector(
+          onTap: () => context.read<FavoritesCubit>().favoritesButtonClicked(
                 FavoriteEntity(id: id, symbol: symbol, name: name, image: image, marketCapRank: marketCapRank),
               ),
-          color: state.favorites.any((favorite) => favorite.id == id)
-              ? context.theme.colorScheme.primary
-              : context.theme.colorScheme.outline,
-          icon: const Icon(Icons.star),
+          child: Icon(
+            Icons.star,
+            color: state.favorites.any((favorite) => favorite.id == id)
+                ? context.theme.colorScheme.primary
+                : context.theme.colorScheme.outline,
+          ),
         );
       },
     );

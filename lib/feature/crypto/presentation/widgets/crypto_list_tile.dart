@@ -1,7 +1,7 @@
 part of '../view/crypto_view.dart';
 
-class CryptoListTile extends StatelessWidget {
-  const CryptoListTile({required this.cryptocurrency, super.key});
+class _CryptoListTile extends StatelessWidget {
+  const _CryptoListTile({required this.cryptocurrency, super.key});
 
   final CryptoEntity cryptocurrency;
 
@@ -18,6 +18,9 @@ class CryptoListTile extends StatelessWidget {
             symbol: cryptocurrency.symbol,
             image: cryptocurrency.image,
             marketCapRank: cryptocurrency.marketCapRank,
+          ),
+          SizedBox(
+            width: context.lowValue,
           ),
           UIKitNetworkImage(
             height: context.highValue,

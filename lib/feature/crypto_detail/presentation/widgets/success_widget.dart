@@ -9,7 +9,7 @@ class _SuccessWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: context.paddingAllLow,
+        padding: context.paddingAllDefault,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

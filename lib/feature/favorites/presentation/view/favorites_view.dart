@@ -1,14 +1,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cryptocurrency_tracker/app/l10n/app_l10n.g.dart';
+import 'package:cryptocurrency_tracker/app/router/app_router.gr.dart';
+import 'package:cryptocurrency_tracker/app/widgets/button/favorites_button.dart';
 import 'package:cryptocurrency_tracker/app/widgets/failure/failure_widget.dart';
-import 'package:cryptocurrency_tracker/app/widgets/list_tile/custom_list_tile.dart';
 import 'package:cryptocurrency_tracker/app/widgets/text/centered_text.dart';
+import 'package:cryptocurrency_tracker/app/widgets/text/text_normal.dart';
 import 'package:cryptocurrency_tracker/core/extensions/context_extensions.dart';
 import 'package:cryptocurrency_tracker/feature/favorites/presentation/cubit/favorites_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_kit/ui_kit.dart';
+
+part '../widgets/favorites_list_tile.dart';
 
 @RoutePage()
 class FavoritesView extends StatelessWidget {
@@ -29,12 +33,12 @@ class FavoritesView extends StatelessWidget {
             FavoritesStatus.empty => CenteredText(text: LocaleKeys.favorites_view_noFavorites.tr()),
             FavoritesStatus.failure => FailureWidget(onPressed: () => context.read<FavoritesCubit>().getFavorites()),
             FavoritesStatus.success => Padding(
-                padding: context.paddingAllLow,
+                padding: context.paddingAllDefault,
                 child: ListView.builder(
                   itemCount: state.favorites.length,
                   itemBuilder: (context, index) {
                     final favorites = state.favorites[index];
-                    return CustomListTile(
+                    return _FavoritesListTile(
                       id: favorites.id,
                       name: favorites.name,
                       symbol: favorites.symbol,

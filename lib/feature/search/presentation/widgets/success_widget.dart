@@ -8,13 +8,13 @@ class _SuccessWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: context.paddingAllLow,
+      padding: context.paddingAllDefault,
       child: ListView.separated(
         itemCount: cryptocurrencies.length,
         separatorBuilder: (context, index) => const Divider(),
         itemBuilder: (context, index) {
           final cryptocurrency = cryptocurrencies[index];
-          return CustomListTile(
+          return _SearchListTile(
             id: cryptocurrency.id,
             name: cryptocurrency.name,
             symbol: cryptocurrency.symbol,

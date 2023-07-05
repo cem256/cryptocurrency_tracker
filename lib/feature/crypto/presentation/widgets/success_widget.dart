@@ -39,14 +39,14 @@ class _SuccessWidgetState extends State<_SuccessWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: context.paddingAllLow,
+      padding: context.paddingAllDefault,
       child: ListView.separated(
         controller: _scrollController,
         itemCount: widget.hasReachedMax ? widget.cryptocurrencies.length : widget.cryptocurrencies.length + 1,
         itemBuilder: (context, index) {
           return index >= widget.cryptocurrencies.length
               ? const UIKitAdaptiveIndicator()
-              : CryptoListTile(cryptocurrency: widget.cryptocurrencies[index]);
+              : _CryptoListTile(cryptocurrency: widget.cryptocurrencies[index]);
         },
         separatorBuilder: (context, index) => const Divider(),
       ),
