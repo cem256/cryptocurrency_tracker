@@ -18,21 +18,18 @@ class _SearchTextFieldState extends State<_SearchTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return CupertinoSearchTextField(
       autofocus: true,
       controller: _searchController,
-      keyboardType: TextInputType.text,
-      decoration: InputDecoration(
-        prefixIcon: const Icon(Icons.search_outlined),
-        suffixIcon: IconButton(
-          icon: const Icon(Icons.clear_outlined),
-          onPressed: () {
-            _searchController.clear();
-            context.read<SearchBloc>().add(const SearchEvent.onSearchFieldCleared());
-          },
-        ),
-        hintText: LocaleKeys.search_view_search_bar_hint.tr(),
-      ),
+      prefixIcon: const Icon(Icons.search),
+      suffixIcon: const Icon(Icons.clear),
+      onSuffixTap: () {
+        _searchController.clear();
+        context.read<SearchBloc>().add(const SearchEvent.onSearchFieldCleared());
+      },
+      style: TextStyle(color: context.textTheme.bodyLarge?.color),
+      borderRadius: BorderRadius.all(ThemeConstants.radiusCircular),
+      placeholder: LocaleKeys.search_view_search_bar_hint.tr(),
       onChanged: (query) => context.read<SearchBloc>().add(SearchEvent.onQueryChanged(query: query)),
     );
   }

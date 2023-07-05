@@ -1,7 +1,7 @@
 part of '../view/crypto_view.dart';
 
 class _CryptoListTile extends StatelessWidget {
-  const _CryptoListTile({required this.cryptocurrency, super.key});
+  const _CryptoListTile({required this.cryptocurrency});
 
   final CryptoEntity cryptocurrency;
 

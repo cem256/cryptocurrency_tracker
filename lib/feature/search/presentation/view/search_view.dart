@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cryptocurrency_tracker/app/l10n/app_l10n.g.dart';
 import 'package:cryptocurrency_tracker/app/router/app_router.gr.dart';
+import 'package:cryptocurrency_tracker/app/theme/constants/theme_constants.dart';
 import 'package:cryptocurrency_tracker/app/widgets/button/favorites_button.dart';
 import 'package:cryptocurrency_tracker/app/widgets/text/centered_text.dart';
 import 'package:cryptocurrency_tracker/app/widgets/text/text_normal.dart';
@@ -9,6 +10,7 @@ import 'package:cryptocurrency_tracker/feature/search/domain/entities/search_ent
 import 'package:cryptocurrency_tracker/feature/search/presentation/bloc/search_bloc.dart';
 import 'package:cryptocurrency_tracker/injection.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_kit/ui_kit.dart';
