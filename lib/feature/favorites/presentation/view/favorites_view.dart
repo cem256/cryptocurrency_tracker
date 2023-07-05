@@ -34,8 +34,9 @@ class FavoritesView extends StatelessWidget {
             FavoritesStatus.failure => FailureWidget(onPressed: () => context.read<FavoritesCubit>().getFavorites()),
             FavoritesStatus.success => Padding(
                 padding: context.paddingAllDefault,
-                child: ListView.builder(
+                child: ListView.separated(
                   itemCount: state.favorites.length,
+                  separatorBuilder: (context, index) => const Divider(),
                   itemBuilder: (context, index) {
                     final favorites = state.favorites[index];
                     return _FavoritesListTile(

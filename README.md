@@ -16,15 +16,15 @@ Sample cryptocurrency tracking app that demonstrates clean architecture, generic
   <tr>
     <td>Preview</td>
     <td>Market</td>
-    <td>Details</td>
     <td>Favorites</td>
+    <td>Details</td>
 
   </tr>
   <tr>
     <td><img src="screenshots/preview.gif"></td>
     <td><img src="screenshots/market.png"></td>
-    <td><img src="screenshots/details.png"></td>
     <td><img src="screenshots/favorites.png"></td>
+    <td><img src="screenshots/details.png"></td>
 
   </tr>
   <tr>
