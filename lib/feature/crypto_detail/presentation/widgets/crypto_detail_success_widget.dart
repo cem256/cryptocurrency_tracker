@@ -1,7 +1,7 @@
 part of '../view/crypto_detail_view.dart';
 
-class _SuccessWidget extends StatelessWidget {
-  const _SuccessWidget({required this.cryptocurrency});
+class _CryptoDetailSuccessWidget extends StatelessWidget {
+  const _CryptoDetailSuccessWidget({required this.cryptocurrency});
 
   final CryptoDetailEntity cryptocurrency;
 

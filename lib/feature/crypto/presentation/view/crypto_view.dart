@@ -19,7 +19,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 part '../widgets/app_bar.dart';
 part '../widgets/crypto_list_tile.dart';
-part '../widgets/success_widget.dart';
+part '../widgets/crypto_success_widget.dart';
 
 @RoutePage()
 class CryptoView extends StatelessWidget {
@@ -46,7 +46,7 @@ class _CryptoViewBody extends StatelessWidget {
       builder: (context, state) {
         return switch (state.status) {
           ViewStatus.loading => const UIKitAdaptiveIndicator(),
-          ViewStatus.success => _SuccessWidget(
+          ViewStatus.success => _CryptoSuccessWidget(
               cryptocurrencies: state.cryptocurrencies,
               hasReachedMax: state.hasReachedMax,
             ),

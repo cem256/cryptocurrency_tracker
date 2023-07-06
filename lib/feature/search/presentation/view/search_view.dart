@@ -17,7 +17,7 @@ import 'package:ui_kit/ui_kit.dart';
 
 part '../widgets/search_list_tile.dart';
 part '../widgets/search_text_field.dart';
-part '../widgets/success_widget.dart';
+part '../widgets/search_success_widget.dart';
 
 @RoutePage()
 class SearchView extends StatelessWidget {
@@ -55,7 +55,7 @@ class _SearchViewBody extends StatelessWidget {
               SearchStatus.noResult => CenteredText(
                   text: LocaleKeys.search_view_no_results_found.tr(args: [state.query]),
                 ),
-              SearchStatus.success => _SuccessWidget(
+              SearchStatus.success => _SearchSuccessWidget(
                   cryptocurrencies: state.cryptocurrencies,
                 )
             };

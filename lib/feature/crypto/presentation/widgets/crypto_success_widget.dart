@@ -1,16 +1,16 @@
 part of '../view/crypto_view.dart';
 
-class _SuccessWidget extends StatefulWidget {
-  const _SuccessWidget({required this.cryptocurrencies, required this.hasReachedMax});
+class _CryptoSuccessWidget extends StatefulWidget {
+  const _CryptoSuccessWidget({required this.cryptocurrencies, required this.hasReachedMax});
 
   final List<CryptoEntity> cryptocurrencies;
   final bool hasReachedMax;
 
   @override
-  State<_SuccessWidget> createState() => _SuccessWidgetState();
+  State<_CryptoSuccessWidget> createState() => _CryptoSuccessWidgetState();
 }
 
-class _SuccessWidgetState extends State<_SuccessWidget> {
+class _CryptoSuccessWidgetState extends State<_CryptoSuccessWidget> {
   final _scrollController = ScrollController();
 
   @override

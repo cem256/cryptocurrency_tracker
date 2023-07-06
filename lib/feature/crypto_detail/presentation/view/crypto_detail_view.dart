@@ -23,7 +23,7 @@ part '../widgets/detail_list_tile.dart';
 part '../widgets/overview_card.dart';
 part '../widgets/section_details.dart';
 part '../widgets/section_historical_data.dart';
-part '../widgets/success_widget.dart';
+part '../widgets/crypto_detail_success_widget.dart';
 
 @RoutePage()
 class CryptoDetailView extends StatelessWidget {
@@ -61,7 +61,7 @@ class _CryptoDetailViewBody extends StatelessWidget {
             ViewStatus.failure => FailureWidget(
                 onPressed: () => context.read<CryptoDetailCubit>().fetchCryptoDetail(id: id),
               ),
-            ViewStatus.success => _SuccessWidget(
+            ViewStatus.success => _CryptoDetailSuccessWidget(
                 cryptocurrency: state.cryptocurrency,
               )
           };

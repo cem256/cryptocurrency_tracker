@@ -1,7 +1,7 @@
 part of '../view/search_view.dart';
 
-class _SuccessWidget extends StatelessWidget {
-  const _SuccessWidget({required this.cryptocurrencies});
+class _SearchSuccessWidget extends StatelessWidget {
+  const _SearchSuccessWidget({required this.cryptocurrencies});
 
   final List<SearchEntity> cryptocurrencies;
 
