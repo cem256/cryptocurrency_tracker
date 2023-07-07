@@ -1,4 +1,4 @@
-import 'package:cryptocurrency_tracker/feature/onboarding/domain/usecases/complete_onboarding_use_case.dart';
+import 'package:cryptocurrency_tracker/feature/onboarding/domain/usecases/uc_complete_onboarding.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

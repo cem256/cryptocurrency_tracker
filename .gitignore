@@ -48,3 +48,4 @@ app.*.map.json
 *.gr.dart
 *.freezed.dart
 *.config.dart
+*.mocks.dart

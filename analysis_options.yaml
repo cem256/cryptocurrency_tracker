@@ -8,6 +8,7 @@ analyzer:
     - "**.gr.dart"
     - "**.freezed.dart"
     - "**.config.dart"
+    - "**.mocks.dart"
 linter:
   rules:
     sort_pub_dependencies: false
