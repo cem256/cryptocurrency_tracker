@@ -1,14 +1,11 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:cryptocurrency_tracker/feature/splash/domain/usecases/uc_check_is_onboarding_completed.dart';
-
 import 'package:cryptocurrency_tracker/feature/splash/presentation/cubit/splash_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
-import 'splash_cubit_test.mocks.dart';
+class MockUCCheckIsOnboardingCompleted extends Mock implements UCCheckIsOnboardingCompleted {}
 
-@GenerateMocks([UCCheckIsOnboardingCompleted])
 void main() {
   group('Splash Cubit Test', () {
     late MockUCCheckIsOnboardingCompleted uc;
@@ -36,7 +33,7 @@ void main() {
     blocTest<SplashCubit, SplashState>(
       'emits [SplashState(isOnboardingCompleted: false)] when UCCheckIsOnboardingCompleted returns false ',
       build: () {
-        when(uc.execute()).thenAnswer((_) async => false);
+        when(() => uc.execute()).thenAnswer((_) async => false);
         return splashCubit;
       },
       act: (bloc) => splashCubit.checkIsOnboardingCompleted(),
@@ -46,7 +43,7 @@ void main() {
     blocTest<SplashCubit, SplashState>(
       'emits [SplashState(isOnboardingCompleted: true)] when UCCheckIsOnboardingCompleted returns true ',
       build: () {
-        when(uc.execute()).thenAnswer((_) async => true);
+        when(() => uc.execute()).thenAnswer((_) async => true);
         return splashCubit;
       },
       act: (bloc) => splashCubit.checkIsOnboardingCompleted(),

@@ -1,12 +1,10 @@
 import 'package:cryptocurrency_tracker/feature/onboarding/domain/repositories/onboarding_repository.dart';
 import 'package:cryptocurrency_tracker/feature/onboarding/domain/usecases/uc_complete_onboarding.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
-import 'uc_complete_onboarding_test.mocks.dart';
+class MockOnboardingRepository extends Mock implements OnboardingRepository {}
 
-@GenerateMocks([OnboardingRepository])
 void main() {
   late MockOnboardingRepository repository;
   late UCCompleteOnboarding uc;
@@ -17,10 +15,10 @@ void main() {
   });
 
   test('Completes onboarding by calling repository.completeOnboarding', () async {
-    when(repository.completeOnboarding()).thenAnswer((_) async {});
+    when(() => repository.completeOnboarding()).thenAnswer((_) async {});
 
     await uc.execute();
 
-    verify(repository.completeOnboarding()).called(1);
+    verify(() => repository.completeOnboarding()).called(1);
   });
 }

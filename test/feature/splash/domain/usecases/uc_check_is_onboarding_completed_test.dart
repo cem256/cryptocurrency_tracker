@@ -1,12 +1,10 @@
 import 'package:cryptocurrency_tracker/feature/splash/domain/repositories/splash_repository.dart';
 import 'package:cryptocurrency_tracker/feature/splash/domain/usecases/uc_check_is_onboarding_completed.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
-import 'uc_check_is_onboarding_completed_test.mocks.dart';
+class MockSplashRepository extends Mock implements SplashRepository {}
 
-@GenerateMocks([SplashRepository])
 void main() {
   late UCCheckIsOnboardingCompleted uc;
   late MockSplashRepository repository;
@@ -16,13 +14,13 @@ void main() {
     uc = UCCheckIsOnboardingCompleted(repository: repository);
   });
   test('Should return false when repository returns false', () async {
-    when(repository.checkIsOnboardingCompleted()).thenAnswer((_) async => false);
+    when(() => repository.checkIsOnboardingCompleted()).thenAnswer((_) async => false);
     final result = await uc.execute();
     expect(false, equals(result));
   });
 
   test('Should return true when repository returns true', () async {
-    when(repository.checkIsOnboardingCompleted()).thenAnswer((_) async => true);
+    when(() => repository.checkIsOnboardingCompleted()).thenAnswer((_) async => true);
     final result = await uc.execute();
     expect(true, equals(result));
   });

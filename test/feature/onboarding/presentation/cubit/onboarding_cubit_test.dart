@@ -2,11 +2,10 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:cryptocurrency_tracker/feature/onboarding/domain/usecases/uc_complete_onboarding.dart';
 import 'package:cryptocurrency_tracker/feature/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
+import 'package:mocktail/mocktail.dart';
 
-import 'onboarding_cubit_test.mocks.dart';
+class MockUCCompleteOnboarding extends Mock implements UCCompleteOnboarding {}
 
-@GenerateMocks([UCCompleteOnboarding])
 void main() {
   group('Onboarding Cubit Test', () {
     late MockUCCompleteOnboarding uc;
