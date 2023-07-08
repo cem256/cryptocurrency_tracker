@@ -71,6 +71,9 @@ Sample cryptocurrency tracking app that demonstrates clean architecture, generic
   - [EasyLocalization](https://pub.dev/packages/easy_localization)
 - Functional Programming
   - [Dartz](https://pub.dev/packages/dartz)
+- Testing
+  - [Mocktail](https://pub.dev/packages/mocktail)
+  - [BlocTest](https://pub.dev/packages/bloc_test)
 
 ### Run this project
 
