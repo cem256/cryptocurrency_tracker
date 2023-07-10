@@ -1,27 +1,17 @@
 import 'package:hive_flutter/adapters.dart';
 
-abstract class CacheClientInterface<T, A extends TypeAdapter<T>> {
+abstract class CacheClientInterface<T> {
   String get boxName;
-  int get typeId;
-  A get adapter;
   Box<T>? _box;
 
   Future<void> init() async {
-    _registerCacheAdapter();
-    await _openBox();
-  }
-
-  Future<void> _openBox() async {
+    registerAdapters();
     if (!(_box?.isOpen ?? false)) {
       _box = await Hive.openBox(boxName);
     }
   }
 
-  void _registerCacheAdapter() {
-    if (!Hive.isAdapterRegistered(typeId)) {
-      Hive.registerAdapter(adapter);
-    }
-  }
+  void registerAdapters();
 
   Future<T?> get(String key) async {
     return _box?.get(key);

@@ -42,7 +42,7 @@ class _SplashViewBodyState extends State<_SplashViewBody> {
     await context.read<SplashCubit>().checkIsOnboardingCompleted();
 
     if (context.mounted) {
-      // init favorites cubit
+      // init favorites cubit then get favorites
       await context.read<FavoritesCubit>().init().then((_) => context.read<FavoritesCubit>().getFavorites());
       //navigate to route depending on onboarding state
       if (context.mounted && (context.read<SplashCubit>().state.isOnboardingCompleted ?? false)) {

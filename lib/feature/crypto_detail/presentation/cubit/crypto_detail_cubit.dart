@@ -19,14 +19,15 @@ class CryptoDetailCubit extends Cubit<CryptoDetailState> {
   Future<void> fetchCryptoDetail({required String id}) async {
     emit(state.copyWith(status: ViewStatus.loading));
     final result = await _uc.execute(id: id);
-
-    result.fold(
-      (failure) => emit(
-        state.copyWith(status: ViewStatus.failure),
-      ),
-      (success) => emit(
-        state.copyWith(status: ViewStatus.success, cryptocurrency: success),
-      ),
-    );
+    if (!isClosed) {
+      result.fold(
+        (failure) => emit(
+          state.copyWith(status: ViewStatus.failure),
+        ),
+        (success) => emit(
+          state.copyWith(status: ViewStatus.success, cryptocurrency: success),
+        ),
+      );
+    }
   }
 }
