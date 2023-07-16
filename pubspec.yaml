@@ -93,7 +93,6 @@ flutter_launcher_icons:
   adaptive_icon_foreground: "assets/logo/logo_foreground.png"
 
 flutter:
-  generate: true
   uses-material-design: true
 
   assets:

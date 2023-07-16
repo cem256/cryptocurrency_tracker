@@ -12,7 +12,7 @@ import 'package:cryptocurrency_tracker/core/utils/date_format/date_format_utils.
 import 'package:cryptocurrency_tracker/core/utils/number_format/number_format_utils.dart';
 import 'package:cryptocurrency_tracker/feature/crypto_detail/domain/entities/crypto_detail_entity.dart';
 import 'package:cryptocurrency_tracker/feature/crypto_detail/presentation/cubit/crypto_detail_cubit.dart';
-import 'package:cryptocurrency_tracker/injection.dart';
+import 'package:cryptocurrency_tracker/locator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,7 +39,7 @@ class CryptoDetailView extends StatelessWidget {
         title: Text(name),
       ),
       body: BlocProvider(
-        create: (context) => getIt<CryptoDetailCubit>()..fetchCryptoDetail(id: id),
+        create: (context) => Locator.instance<CryptoDetailCubit>()..fetchCryptoDetail(id: id),
         child: _CryptoDetailViewBody(id: id),
       ),
     );

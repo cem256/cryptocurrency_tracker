@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cryptocurrency_tracker/app/router/app_router.gr.dart';
 import 'package:cryptocurrency_tracker/feature/favorites/presentation/cubit/favorites_cubit.dart';
 import 'package:cryptocurrency_tracker/feature/splash/presentation/cubit/splash_cubit.dart';
-import 'package:cryptocurrency_tracker/injection.dart';
+import 'package:cryptocurrency_tracker/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -16,7 +16,7 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<SplashCubit>(),
+      create: (context) => Locator.instance<SplashCubit>(),
       child: const Scaffold(
         body: _SplashViewBody(),
       ),

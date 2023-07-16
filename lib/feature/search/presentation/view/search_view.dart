@@ -8,7 +8,7 @@ import 'package:cryptocurrency_tracker/app/widgets/text/text_normal.dart';
 import 'package:cryptocurrency_tracker/core/extensions/context_extensions.dart';
 import 'package:cryptocurrency_tracker/feature/search/domain/entities/search_entity.dart';
 import 'package:cryptocurrency_tracker/feature/search/presentation/bloc/search_bloc.dart';
-import 'package:cryptocurrency_tracker/injection.dart';
+import 'package:cryptocurrency_tracker/locator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +26,7 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<SearchBloc>(),
+      create: (context) => Locator.instance<SearchBloc>(),
       child: const _SearchViewBody(),
     );
   }

@@ -7,8 +7,7 @@ import 'package:cryptocurrency_tracker/app/theme/light/light_theme.dart';
 import 'package:cryptocurrency_tracker/core/extensions/context_extensions.dart';
 import 'package:cryptocurrency_tracker/core/utils/observer/custom_bloc_observer.dart';
 import 'package:cryptocurrency_tracker/feature/favorites/presentation/cubit/favorites_cubit.dart';
-import 'package:cryptocurrency_tracker/injection.dart' as sl;
-import 'package:cryptocurrency_tracker/injection.dart';
+import 'package:cryptocurrency_tracker/locator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,7 +27,7 @@ Future<void> main() async {
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
   await Hive.initFlutter();
-  await sl.initDependencies();
+  await Locator.locateServices();
   await EasyLocalization.ensureInitialized();
 
   await SystemChrome.setPreferredOrientations(
@@ -58,7 +57,7 @@ class CryptocurrencyTracker extends StatelessWidget {
           create: (_) => ThemeCubit(),
         ),
         BlocProvider(
-          create: (_) => getIt<FavoritesCubit>(),
+          create: (_) => Locator.instance<FavoritesCubit>(),
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeState>(

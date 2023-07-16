@@ -12,6 +12,10 @@ class UIKitNetworkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
+      memCacheWidth: 100,
+      memCacheHeight: 100,
+      maxHeightDiskCache: 100,
+      maxWidthDiskCache: 100,
       height: height,
       imageUrl: imageUrl,
       errorWidget: (context, url, error) => errorWidget ?? const Icon(Icons.error),
