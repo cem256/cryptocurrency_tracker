@@ -10,6 +10,7 @@ final class OnboardingRepositoryImpl implements OnboardingRepository {
   final OnboardingLocalDataSource _onboardingLocalDataSource;
 
   @override
+  // Completes the onboarding process
   Future<void> completeOnboarding() async {
     await _onboardingLocalDataSource.completeOnboarding();
   }

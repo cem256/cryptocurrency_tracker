@@ -21,7 +21,7 @@ class _CryptoDetailSuccessWidget extends StatelessWidget {
                   errorWidget: const Icon(Icons.error),
                 ),
                 SizedBox(
-                  width: context.mediumValue,
+                  width: context.defaultValue,
                 ),
                 TextLarge(
                   LocaleKeys.crypto_details_view_overview.tr(args: [cryptocurrency.symbol.toUpperCase()]),
@@ -65,7 +65,7 @@ class _CryptoDetailSuccessWidget extends StatelessWidget {
             _DetailCard(
               child: _SectionHistoricalData(cryptocurrency: cryptocurrency),
             ),
-          ].withSpaceBetween(height: context.mediumValue),
+          ].withSpaceBetween(height: context.defaultValue),
         ),
       ),
     );

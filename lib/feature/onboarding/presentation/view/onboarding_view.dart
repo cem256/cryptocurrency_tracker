@@ -106,7 +106,7 @@ class _OnboardingPage extends StatelessWidget {
           textAlign: TextAlign.center,
           maxLines: 2,
         ),
-      ].withSpaceBetween(height: context.mediumValue),
+      ].withSpaceBetween(height: context.defaultValue),
     );
   }
 }

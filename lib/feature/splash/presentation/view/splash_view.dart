@@ -51,6 +51,7 @@ class _SplashViewBodyState extends State<_SplashViewBody> {
         unawaited(context.router.replace(const OnboardingRoute()));
       }
     }
+    // Remove Splash Screen when all of the initialization is done
     FlutterNativeSplash.remove();
   }
 

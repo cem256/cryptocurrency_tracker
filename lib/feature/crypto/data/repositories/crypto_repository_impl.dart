@@ -16,17 +16,22 @@ final class CryptoRepositoryImpl implements CryptoRepository {
   final CryptoRemoteDataSource _remoteDataSource;
 
   @override
+  // Gets list of cryptocurrencies from the remote data source. and returns a list of [CryptoEntity] or a [Failure].
   Future<Either<Failure, List<CryptoEntity>>> getAllCryptocurrencies({
     required int page,
     required int perPage,
   }) async {
     try {
+      // Get list of [CryptoModel] from the remote data source.
       final result = await _remoteDataSource.getAllCryptocurrencies(page: page, perPage: perPage);
       return right(result.map((e) => e.toCryptoEntity()).toList());
+      // On DioException, return a [Failure.networkFailure].
     } on DioException {
       return left(const Failure.networkFailure());
+      // On NullResponseException, return a [ Failure.nullResponseFaiure].
     } on NullResponseException {
       return left(const Failure.nullResponseFaiure());
+      // On any other exception, return a [Failure.unknownFailure] and print the error.
     } catch (e) {
       debugPrint('ERROR: Method getAllCryptocurrencies MESSAGE: $e');
       return left(const Failure.unknownFailure());

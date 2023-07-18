@@ -5,6 +5,9 @@ import 'package:cryptocurrency_tracker/core/extensions/context_extensions.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+/// Takes [Failure] as a parameter and displays the error message accodingly
+///
+/// Takes an optional onPressed function for the retry action
 class FailureWidget extends StatelessWidget {
   const FailureWidget({required this.onPressed, super.key, this.failure});
 
@@ -25,7 +28,7 @@ class FailureWidget extends StatelessWidget {
                 ) ??
                 LocaleKeys.failure_unknown.tr(),
           ),
-          SizedBox(height: context.mediumValue),
+          SizedBox(height: context.defaultValue),
           TextButton.icon(
             onPressed: onPressed,
             icon: const Icon(Icons.refresh),

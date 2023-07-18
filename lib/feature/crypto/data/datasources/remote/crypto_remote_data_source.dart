@@ -5,6 +5,8 @@ import 'package:cryptocurrency_tracker/feature/crypto/data/models/crypto_model.d
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
+/// [CryptoRemoteDataSource] is a contract class which defines the methods
+/// that any implementation of [CryptoRemoteDataSource] must implement.
 abstract interface class CryptoRemoteDataSource {
   Future<List<CryptoModel>> getAllCryptocurrencies({required int page, required int perPage});
 }
@@ -16,8 +18,10 @@ final class CryptoRemoteDataSourceImpl implements CryptoRemoteDataSource {
   final NetworkClient _networkClient;
 
   @override
+  // Returns a list of [CryptoModel] from the remote API.
   Future<List<CryptoModel>> getAllCryptocurrencies({required int page, required int perPage}) async {
     try {
+      // Get cryptocurrencies from API using [NetworkClient]
       final response = await _networkClient.get<List<dynamic>>(
         ApiConstants.getAll,
         queryParameters: {
@@ -30,14 +34,16 @@ final class CryptoRemoteDataSourceImpl implements CryptoRemoteDataSource {
           'locale': 'en'
         },
       );
-
+      // If response data is null throw [NullResponseException]
       if (response.data == null) {
         throw NullResponseException();
       }
-
+      // Map the response to a list of [CryptoModel]
       return response.data!.map((e) => CryptoModel.fromJson(e as Map<String, dynamic>)).toList();
+      // Catch [DioException] and throw [DioException]
     } on DioException catch (e) {
       throw DioException(requestOptions: e.requestOptions, message: e.message);
+      // Throw [UnknownException] for any other exception
     } catch (_) {
       throw UnknownException();
     }

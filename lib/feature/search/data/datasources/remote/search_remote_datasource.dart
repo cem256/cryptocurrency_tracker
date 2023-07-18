@@ -5,6 +5,8 @@ import 'package:cryptocurrency_tracker/feature/search/data/models/search_model.d
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
+/// [SearchRemoteDataSource] is a contract class which defines the methods
+/// that any implementation of [SearchRemoteDataSource] must implement.
 abstract interface class SearchRemoteDataSource {
   Future<List<SearchModel>> search({required String query});
 }
@@ -16,13 +18,15 @@ final class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
   final NetworkClient _networkClient;
 
   @override
+  // Returns a list of [SearchModel] from the remote API.
   Future<List<SearchModel>> search({required String query}) async {
     try {
+      // Get cryptocurrencies that match the given query from API using [NetworkClient]
       final response = await _networkClient.get<Map<String, dynamic>>(
         ApiConstants.search,
         queryParameters: {'query': query},
       );
-
+      // If response  data is null throw [NullResponseException]
       if (response.data == null) {
         throw NullResponseException();
       }
@@ -30,9 +34,12 @@ final class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
       if (coins.isEmpty) {
         return <SearchModel>[];
       }
+      // Map the response to a list of [SearchModel]
       return coins.map((e) => SearchModel.fromJson(e as Map<String, dynamic>)).toList();
+      // Catch [DioException] and throw [DioException]
     } on DioException catch (e) {
       throw DioException(requestOptions: e.requestOptions, message: e.message);
+      // Throw [UnknownException] for any other exception
     } catch (_) {
       throw UnknownException();
     }

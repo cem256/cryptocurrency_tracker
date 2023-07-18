@@ -14,11 +14,13 @@ final class FavoritesRepositoryImpl implements FavoritesRepository {
   final FavoritesLocalDataSource _dataSource;
 
   @override
+  // Initialize the data source
   Future<void> init() async {
     await _dataSource.init();
   }
 
   @override
+  // Get all favorites from cache
   Either<Failure, List<FavoriteEntity>> getFavorites() {
     try {
       final favorites = _dataSource.getFavorites();
@@ -31,6 +33,7 @@ final class FavoritesRepositoryImpl implements FavoritesRepository {
   }
 
   @override
+  // If item is already in favorites, remove it, otherwise add it
   Future<Either<Failure, List<FavoriteEntity>>> addOrRemoveItem(FavoriteEntity item) async {
     try {
       final favorites = _dataSource.getFavorites();

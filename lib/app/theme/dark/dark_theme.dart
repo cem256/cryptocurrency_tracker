@@ -1,6 +1,7 @@
 import 'package:cryptocurrency_tracker/app/theme/base/base_theme.dart';
 import 'package:flutter/material.dart';
 
+/// Specifies the dark theme for the app.
 final class DarkTheme extends BaseTheme {
   @override
   ColorScheme get colorScheme => _colorScheme;

@@ -17,14 +17,20 @@ final class CryptoDetailRepositoryImpl implements CryptoDetailRepository {
   final CryptoDetailRemoteDataSource _remoteDataSource;
 
   @override
+  // Gets a [CryptoDetailModel] from the remote data source. and returns a [CryptoDetailEntity] or a [Failure].
   Future<Either<Failure, CryptoDetailEntity>> getDetail({required String id}) async {
     try {
+      // Get a [CryptoDetailModel] from the remote data source.
       final result = await _remoteDataSource.getDetail(id: id);
+      // Map the list of [CryptoDetailModel] to a list of [CryptoDetailEntity].
       return right(result.toCryptoDetailEntity());
+      // On DioException, return a [Failure.networkFailure].
     } on DioException {
       return left(const Failure.networkFailure());
+      // On NullResponseException, return a [Failure.nullResponseFaiure].
     } on NullResponseException {
       return left(const Failure.nullResponseFaiure());
+      // On any other exception, return a [Failure.unknownFailure] and print the error.
     } catch (e) {
       debugPrint('ERROR: Method getDetail MESSAGE: $e');
       return left(const Failure.unknownFailure());

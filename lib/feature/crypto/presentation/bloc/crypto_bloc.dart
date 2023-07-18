@@ -19,7 +19,7 @@ class CryptoBloc extends Bloc<CryptoEvent, CryptoState> {
   CryptoBloc({required UCGetAllCryptocurrencies ucGetAllCryptocurrencies})
       : _ucGetAllCryptocurrencies = ucGetAllCryptocurrencies,
         super(CryptoState.initial()) {
-    on<_Fetched>(_onCoinsFetched, transformer: EventTransformerUtils.throttle(DurationContants.long()));
+    on<_Fetched>(_onCoinsFetched, transformer: EventTransformerUtils.throttle(DurationConstants.long()));
   }
   int _page = 1;
   final int _perPage = 50;

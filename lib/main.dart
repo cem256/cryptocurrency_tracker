@@ -19,17 +19,21 @@ import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
   final widgetBinding = WidgetsFlutterBinding.ensureInitialized();
+  // Initialize Flutter Native Splash
   FlutterNativeSplash.preserve(widgetsBinding: widgetBinding);
-
+  // Initialize Bloc Observer
   Bloc.observer = CustomBlocObserver();
-
+  // Initialize Hydrated Bloc for Caching Theme Preference
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
+  // Initialize Hive
   await Hive.initFlutter();
+  // Initialize Locator
   await Locator.locateServices();
+  // Initialize Easy Localization
   await EasyLocalization.ensureInitialized();
-
+  // Set Screen Orientation
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp],
   );
@@ -53,6 +57,7 @@ class CryptocurrencyTracker extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        // Injecting ThemeCubit and FavoritesBloc to the widget tree
         BlocProvider(
           create: (_) => ThemeCubit(),
         ),

@@ -6,6 +6,8 @@ import 'package:cryptocurrency_tracker/feature/crypto_detail/data/models/crypto_
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
+/// [CryptoDetailRemoteDataSource] is a contract class which defines the methods
+/// that any implementation of [CryptoDetailRemoteDataSource] must implement.
 abstract interface class CryptoDetailRemoteDataSource {
   Future<CryptoDetailModel> getDetail({required String id});
 }
@@ -17,8 +19,10 @@ final class CryptoDetailRemoteDataSourceImpl implements CryptoDetailRemoteDataSo
   final NetworkClient _networkClient;
 
   @override
+  // Returns a [CryptoDetailModel] from the remote API.
   Future<CryptoDetailModel> getDetail({required String id}) async {
     try {
+      // Get popular mangas from API using [NetworkClient]
       final response = await _networkClient.get<List<dynamic>>(
         ApiConstants.getDetails,
         queryParameters: {
@@ -32,12 +36,16 @@ final class CryptoDetailRemoteDataSourceImpl implements CryptoDetailRemoteDataSo
           'locale': 'en'
         },
       );
+      // If response is null throw [NullResponseException]
       if (response.data == null) {
         throw NullResponseException();
       }
+      // Convert data as  [CryptoDetailModel]
       return CryptoDetailModel.fromJson(response.data![0] as Map<String, dynamic>);
+      // Catch [DioException] and throw [DioException]
     } on DioException catch (e) {
       throw DioException(requestOptions: e.requestOptions, message: e.message);
+      // Throw [UnknownException] for any other exception
     } catch (_) {
       throw UnknownException();
     }

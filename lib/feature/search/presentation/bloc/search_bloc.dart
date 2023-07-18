@@ -17,7 +17,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   SearchBloc({required UCSearch ucSearch})
       : _ucSearch = ucSearch,
         super(SearchState.initial()) {
-    on<_QueryChanged>(_onQueryChanged, transformer: EventTransformerUtils.debounce(DurationContants.short()));
+    on<_QueryChanged>(_onQueryChanged, transformer: EventTransformerUtils.debounce(DurationConstants.short()));
     on<_SearchFieldCleared>(_onSearchFieldCleared);
   }
 

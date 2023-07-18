@@ -2,6 +2,8 @@ import 'package:cryptocurrency_tracker/app/constants/cache_constants.dart';
 import 'package:cryptocurrency_tracker/feature/splash/data/data_sources/local/splash_cache_client.dart';
 import 'package:injectable/injectable.dart';
 
+/// [SplashLocalDataSource] is a contract class which defines the methods
+/// that any implementation of [SplashLocalDataSource] must implement.
 abstract interface class SplashLocalDataSource {
   Future<bool?> getOnboardingValue();
 }

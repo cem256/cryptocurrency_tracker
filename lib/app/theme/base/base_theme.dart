@@ -1,6 +1,7 @@
 import 'package:cryptocurrency_tracker/app/theme/constants/theme_constants.dart';
 import 'package:flutter/material.dart';
 
+/// A base class for all the themes in the app
 abstract base class BaseTheme {
   ColorScheme get colorScheme;
 
