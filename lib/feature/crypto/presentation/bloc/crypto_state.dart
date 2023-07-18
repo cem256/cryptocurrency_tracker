@@ -6,6 +6,7 @@ class CryptoState with _$CryptoState {
     required ViewStatus status,
     required List<CryptoEntity> cryptocurrencies,
     required bool hasReachedMax,
+    Failure? failure,
   }) = _CryptoState;
 
   factory CryptoState.initial() => const CryptoState(

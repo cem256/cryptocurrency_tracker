@@ -1,4 +1,4 @@
-import 'package:cryptocurrency_tracker/core/models/failure/failure_model.dart';
+import 'package:cryptocurrency_tracker/app/errors/failures/failure.dart';
 import 'package:cryptocurrency_tracker/feature/favorites/data/datasources/local/favorites_local_data_source.dart';
 import 'package:cryptocurrency_tracker/feature/favorites/data/models/favorite_model.dart';
 import 'package:cryptocurrency_tracker/feature/favorites/data/repositories/favorites_repository_impl.dart';
@@ -33,16 +33,16 @@ void main() {
 
     verify(() => dataSource.getFavorites());
 
-    expect(result, isA<Right<FailureModel, List<FavoriteEntity>>>());
+    expect(result, isA<Right<Failure, List<FavoriteEntity>>>());
   });
 
-  test('Should return  FailureModel when an exception caught', () async {
+  test('Should return  Failure when an exception caught', () async {
     when(() => dataSource.init()).thenAnswer((_) async => {});
     when(() => dataSource.getFavorites()).thenThrow(Exception());
     final result = repository.getFavorites();
 
     verify(() => dataSource.getFavorites());
 
-    expect(result, isA<Left<FailureModel, List<FavoriteEntity>>>());
+    expect(result, isA<Left<Failure, List<FavoriteEntity>>>());
   });
 }

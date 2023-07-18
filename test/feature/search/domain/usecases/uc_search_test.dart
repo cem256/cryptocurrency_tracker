@@ -1,4 +1,4 @@
-import 'package:cryptocurrency_tracker/core/models/failure/failure_model.dart';
+import 'package:cryptocurrency_tracker/app/errors/failures/failure.dart';
 import 'package:cryptocurrency_tracker/feature/search/domain/entities/search_entity.dart';
 import 'package:cryptocurrency_tracker/feature/search/domain/repositories/search_repository.dart';
 import 'package:cryptocurrency_tracker/feature/search/domain/usecases/uc_search.dart';
@@ -30,15 +30,15 @@ void main() {
       final result = await uc.execute(query: query);
 
       verify(() => uc.execute(query: query));
-      expect(result, isA<Right<FailureModel, List<SearchEntity>>>());
+      expect(result, isA<Right<Failure, List<SearchEntity>>>());
     });
 
-    test('Should return FailureModel type of object when an exception caught', () async {
-      when(() => repository.search(query: query)).thenAnswer((_) async => const Left(FailureModel()));
+    test('Should return Failure type of object when an exception caught', () async {
+      when(() => repository.search(query: query)).thenAnswer((_) async => const Left(Failure.unknownFailure()));
       final result = await uc.execute(query: query);
 
       verify(() => uc.execute(query: query));
-      expect(result, isA<Left<FailureModel, List<SearchEntity>>>());
+      expect(result, isA<Left<Failure, List<SearchEntity>>>());
     });
   });
 }

@@ -50,7 +50,7 @@ class _SearchViewBody extends StatelessWidget {
                 ),
               SearchStatus.loading => const UIKitAdaptiveIndicator(),
               SearchStatus.failure => CenteredText(
-                  text: LocaleKeys.errors_somethingWentWrong.tr(),
+                  text: LocaleKeys.failure_unknown.tr(),
                 ),
               SearchStatus.noResult => CenteredText(
                   text: LocaleKeys.search_view_no_results_found.tr(args: [state.query]),

@@ -59,6 +59,7 @@ class _CryptoDetailViewBody extends StatelessWidget {
           return switch (state.status) {
             ViewStatus.loading => const UIKitAdaptiveIndicator(),
             ViewStatus.failure => FailureWidget(
+                failure: state.failure,
                 onPressed: () => context.read<CryptoDetailCubit>().fetchCryptoDetail(id: id),
               ),
             ViewStatus.success => _CryptoDetailSuccessWidget(

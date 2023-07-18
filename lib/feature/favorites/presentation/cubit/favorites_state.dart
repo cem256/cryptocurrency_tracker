@@ -7,6 +7,7 @@ class FavoritesState with _$FavoritesState {
   const factory FavoritesState({
     required FavoritesStatus status,
     required List<FavoriteEntity> favorites,
+    Failure? failure,
   }) = _FavoritesState;
 
   factory FavoritesState.initial() => const FavoritesState(

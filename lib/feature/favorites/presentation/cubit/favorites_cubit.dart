@@ -1,5 +1,6 @@
 // ignore_for_file: cascade_invocations
 
+import 'package:cryptocurrency_tracker/app/errors/failures/failure.dart';
 import 'package:cryptocurrency_tracker/feature/favorites/domain/models/favorite_entity.dart';
 import 'package:cryptocurrency_tracker/feature/favorites/domain/usecases/uc_favorites.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +26,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     emit(state.copyWith(status: FavoritesStatus.loading));
     final response = _uc.getFavorites();
 
-    response.fold((l) => emit(state.copyWith(status: FavoritesStatus.failure)), (success) {
+    response.fold((failure) => emit(state.copyWith(status: FavoritesStatus.failure, failure: failure)), (success) {
       success.isEmpty
           ? emit(state.copyWith(favorites: success, status: FavoritesStatus.empty))
           : emit(state.copyWith(status: FavoritesStatus.success, favorites: success));
@@ -35,7 +36,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
   Future<void> favoritesButtonClicked(FavoriteEntity item) async {
     final response = await _uc.favoritesButtonClicked(item);
 
-    response.fold((failure) => emit(state.copyWith(status: FavoritesStatus.failure)), (success) {
+    response.fold((failure) => emit(state.copyWith(status: FavoritesStatus.failure, failure: failure)), (success) {
       success.isEmpty
           ? emit(state.copyWith(favorites: success, status: FavoritesStatus.empty))
           : emit(state.copyWith(favorites: success, status: FavoritesStatus.success));

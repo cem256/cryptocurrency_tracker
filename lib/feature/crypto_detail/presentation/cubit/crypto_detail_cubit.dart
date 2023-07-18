@@ -1,3 +1,4 @@
+import 'package:cryptocurrency_tracker/app/errors/failures/failure.dart';
 import 'package:cryptocurrency_tracker/core/enums/view_status.dart';
 import 'package:cryptocurrency_tracker/feature/crypto_detail/domain/entities/crypto_detail_entity.dart';
 import 'package:cryptocurrency_tracker/feature/crypto_detail/domain/usecases/uc_get_crypto_detail.dart';
@@ -22,7 +23,7 @@ class CryptoDetailCubit extends Cubit<CryptoDetailState> {
     if (!isClosed) {
       result.fold(
         (failure) => emit(
-          state.copyWith(status: ViewStatus.failure),
+          state.copyWith(status: ViewStatus.failure, failure: failure),
         ),
         (success) => emit(
           state.copyWith(status: ViewStatus.success, cryptocurrency: success),

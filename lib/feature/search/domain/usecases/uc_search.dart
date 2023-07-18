@@ -1,4 +1,4 @@
-import 'package:cryptocurrency_tracker/core/models/failure/failure_model.dart';
+import 'package:cryptocurrency_tracker/app/errors/failures/failure.dart';
 import 'package:cryptocurrency_tracker/feature/search/domain/entities/search_entity.dart';
 import 'package:cryptocurrency_tracker/feature/search/domain/repositories/search_repository.dart';
 import 'package:dartz/dartz.dart';
@@ -10,7 +10,7 @@ class UCSearch {
 
   final SearchRepository _repository;
 
-  Future<Either<FailureModel, List<SearchEntity>>> execute({required String query}) {
+  Future<Either<Failure, List<SearchEntity>>> execute({required String query}) {
     return _repository.search(query: query);
   }
 }

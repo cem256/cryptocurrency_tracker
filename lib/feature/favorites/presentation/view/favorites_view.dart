@@ -31,7 +31,10 @@ class FavoritesView extends StatelessWidget {
                 child: UIKitAdaptiveIndicator(),
               ),
             FavoritesStatus.empty => CenteredText(text: LocaleKeys.favorites_view_noFavorites.tr()),
-            FavoritesStatus.failure => FailureWidget(onPressed: () => context.read<FavoritesCubit>().getFavorites()),
+            FavoritesStatus.failure => FailureWidget(
+                failure: state.failure,
+                onPressed: () => context.read<FavoritesCubit>().getFavorites(),
+              ),
             FavoritesStatus.success => Padding(
                 padding: context.paddingAllDefault,
                 child: ListView.separated(

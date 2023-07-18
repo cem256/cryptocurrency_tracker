@@ -1,4 +1,4 @@
-import 'package:cryptocurrency_tracker/core/models/failure/failure_model.dart';
+import 'package:cryptocurrency_tracker/app/errors/failures/failure.dart';
 import 'package:cryptocurrency_tracker/feature/crypto_detail/data/datasources/remote/crypto_detail_remote_datasource.dart';
 import 'package:cryptocurrency_tracker/feature/crypto_detail/data/models/crypto_detail_model.dart';
 import 'package:cryptocurrency_tracker/feature/crypto_detail/data/repositories/crypto_detail_repository_impl.dart';
@@ -31,15 +31,15 @@ void main() {
 
     verify(() => dataSource.getDetail(id: id));
 
-    expect(result, isA<Right<FailureModel, CryptoDetailEntity>>());
+    expect(result, isA<Right<Failure, CryptoDetailEntity>>());
   });
 
-  test('Should return  FailureModel when an exception caught', () async {
+  test('Should return  Failure when an exception caught', () async {
     when(() => dataSource.getDetail(id: id)).thenThrow(Exception());
     final result = await repository.getDetail(id: id);
 
     verify(() => dataSource.getDetail(id: id));
 
-    expect(result, isA<Left<FailureModel, CryptoDetailEntity>>());
+    expect(result, isA<Left<Failure, CryptoDetailEntity>>());
   });
 }

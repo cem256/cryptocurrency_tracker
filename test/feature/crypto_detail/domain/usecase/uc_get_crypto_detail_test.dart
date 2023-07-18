@@ -1,4 +1,4 @@
-import 'package:cryptocurrency_tracker/core/models/failure/failure_model.dart';
+import 'package:cryptocurrency_tracker/app/errors/failures/failure.dart';
 import 'package:cryptocurrency_tracker/feature/crypto_detail/domain/entities/crypto_detail_entity.dart';
 import 'package:cryptocurrency_tracker/feature/crypto_detail/domain/repositories/crypto_detail_repository.dart';
 import 'package:cryptocurrency_tracker/feature/crypto_detail/domain/usecases/uc_get_crypto_detail.dart';
@@ -30,15 +30,15 @@ void main() {
       final result = await uc.execute(id: id);
 
       verify(() => uc.execute(id: id));
-      expect(result, isA<Right<FailureModel, CryptoDetailEntity>>());
+      expect(result, isA<Right<Failure, CryptoDetailEntity>>());
     });
 
-    test('Should return FailureModel type of object when an exception caught', () async {
-      when(() => repository.getDetail(id: id)).thenAnswer((_) async => const Left(FailureModel()));
+    test('Should return Failure type of object when an exception caught', () async {
+      when(() => repository.getDetail(id: id)).thenAnswer((_) async => const Left(Failure.unknownFailure()));
       final result = await uc.execute(id: id);
 
       verify(() => uc.execute(id: id));
-      expect(result, isA<Left<FailureModel, CryptoDetailEntity>>());
+      expect(result, isA<Left<Failure, CryptoDetailEntity>>());
     });
   });
 }

@@ -8,11 +8,13 @@
     "infoDescription3": "Discover thousands of cryptocurrencies with search functionality",
     "getStarted": "Get Started"
   },
-  "errors": {
-    "somethingWentWrong": "Oops! Something Went Wrong.",
-    "retry": "Retry"
+  "failure": {
+    "network": "Network Failure",
+    "unknown": "Unknown Failure",
+    "nullResponse": "Cannot Fetch Data"
   },
   "common": {
+    "retry": "Retry",
     "market_cap_rank": "#{}",
     "percentChange": "{}%"
   },

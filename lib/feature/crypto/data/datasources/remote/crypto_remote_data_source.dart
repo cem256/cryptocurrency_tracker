@@ -1,6 +1,8 @@
 import 'package:cryptocurrency_tracker/app/constants/api_constants.dart';
+import 'package:cryptocurrency_tracker/app/errors/exceptions/exceptions.dart';
 import 'package:cryptocurrency_tracker/core/clients/network/network_client.dart';
 import 'package:cryptocurrency_tracker/feature/crypto/data/models/crypto_model.dart';
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class CryptoRemoteDataSource {
@@ -30,12 +32,14 @@ final class CryptoRemoteDataSourceImpl implements CryptoRemoteDataSource {
       );
 
       if (response.data == null) {
-        throw Exception();
+        throw NullResponseException();
       }
 
       return response.data!.map((e) => CryptoModel.fromJson(e as Map<String, dynamic>)).toList();
-    } catch (e) {
-      throw Exception(e);
+    } on DioException catch (e) {
+      throw DioException(requestOptions: e.requestOptions, message: e.message);
+    } catch (_) {
+      throw UnknownException();
     }
   }
 }

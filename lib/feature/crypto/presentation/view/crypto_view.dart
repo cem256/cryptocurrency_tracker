@@ -51,6 +51,7 @@ class _CryptoViewBody extends StatelessWidget {
               hasReachedMax: state.hasReachedMax,
             ),
           ViewStatus.failure => FailureWidget(
+              failure: state.failure,
               onPressed: () => context.read<CryptoBloc>().add(
                     const CryptoEvent.onCryptocurrenciesFetched(),
                   ),

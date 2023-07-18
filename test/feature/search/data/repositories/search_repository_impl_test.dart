@@ -1,4 +1,4 @@
-import 'package:cryptocurrency_tracker/core/models/failure/failure_model.dart';
+import 'package:cryptocurrency_tracker/app/errors/failures/failure.dart';
 import 'package:cryptocurrency_tracker/feature/search/data/datasources/remote/search_remote_datasource.dart';
 import 'package:cryptocurrency_tracker/feature/search/data/models/search_model.dart';
 import 'package:cryptocurrency_tracker/feature/search/data/repositories/search_repository_impl.dart';
@@ -32,15 +32,15 @@ void main() {
 
     verify(() => dataSource.search(query: query));
 
-    expect(result, isA<Right<FailureModel, List<SearchEntity>>>());
+    expect(result, isA<Right<Failure, List<SearchEntity>>>());
   });
 
-  test('Should return  FailureModel when an exception caught', () async {
+  test('Should return  Failure when an exception caught', () async {
     when(() => dataSource.search(query: query)).thenThrow(Exception());
     final result = await repository.search(query: query);
 
     verify(() => dataSource.search(query: query));
 
-    expect(result, isA<Left<FailureModel, List<SearchEntity>>>());
+    expect(result, isA<Left<Failure, List<SearchEntity>>>());
   });
 }

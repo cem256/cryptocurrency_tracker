@@ -1,12 +1,10 @@
-import 'dart:developer';
-
-import 'package:cryptocurrency_tracker/core/models/failure/failure_model.dart';
-
+import 'package:cryptocurrency_tracker/app/errors/failures/failure.dart';
 import 'package:cryptocurrency_tracker/feature/favorites/data/datasources/local/favorites_local_data_source.dart';
 import 'package:cryptocurrency_tracker/feature/favorites/data/models/favorite_model.dart';
 import 'package:cryptocurrency_tracker/feature/favorites/domain/models/favorite_entity.dart';
 import 'package:cryptocurrency_tracker/feature/favorites/domain/repositories/favorites_repository.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: FavoritesRepository)
@@ -21,19 +19,19 @@ final class FavoritesRepositoryImpl implements FavoritesRepository {
   }
 
   @override
-  Either<FailureModel, List<FavoriteEntity>> getFavorites() {
+  Either<Failure, List<FavoriteEntity>> getFavorites() {
     try {
       final favorites = _dataSource.getFavorites();
 
       return right(favorites.map((e) => e.toFavoriteEntity()).toList());
     } catch (e) {
-      log('ERROR: FavoritesRepositoryImpl: $e');
-      return left(const FailureModel());
+      debugPrint('ERROR: Method getFavorites MESSAGE: $e');
+      return left(const Failure.unknownFailure());
     }
   }
 
   @override
-  Future<Either<FailureModel, List<FavoriteEntity>>> addOrRemoveItem(FavoriteEntity item) async {
+  Future<Either<Failure, List<FavoriteEntity>>> addOrRemoveItem(FavoriteEntity item) async {
     try {
       final favorites = _dataSource.getFavorites();
       final favorite = item.toFavoriteModel();
@@ -47,8 +45,8 @@ final class FavoritesRepositoryImpl implements FavoritesRepository {
       final newFavorites = _dataSource.getFavorites();
       return right(newFavorites.map((e) => e.toFavoriteEntity()).toList());
     } catch (e) {
-      log('ERROR: FavoritesRepositoryImpl: $e');
-      return left(const FailureModel());
+      debugPrint('ERROR: Method addOrRemoveItem MESSAGE: $e');
+      return left(const Failure.unknownFailure());
     }
   }
 }

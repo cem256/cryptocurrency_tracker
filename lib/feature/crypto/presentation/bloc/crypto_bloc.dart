@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cryptocurrency_tracker/app/constants/duration_contants.dart';
+import 'package:cryptocurrency_tracker/app/errors/failures/failure.dart';
 import 'package:cryptocurrency_tracker/core/enums/view_status.dart';
 import 'package:cryptocurrency_tracker/core/utils/event_transformer/event_transformer_utils.dart';
 import 'package:cryptocurrency_tracker/feature/crypto/domain/entities/crypto_entity.dart';
@@ -29,7 +30,7 @@ class CryptoBloc extends Bloc<CryptoEvent, CryptoState> {
     if (state.hasReachedMax) return;
     if (state.status == ViewStatus.loading) {
       final result = await _ucGetAllCryptocurrencies.execute(page: _page, perPage: _perPage);
-      return result.fold((failure) => emit(state.copyWith(status: ViewStatus.failure)), (success) {
+      return result.fold((failure) => emit(state.copyWith(status: ViewStatus.failure, failure: failure)), (success) {
         _page++;
         emit(
           success.isEmpty
@@ -44,7 +45,7 @@ class CryptoBloc extends Bloc<CryptoEvent, CryptoState> {
     }
 
     final result = await _ucGetAllCryptocurrencies.execute(page: _page, perPage: _perPage);
-    result.fold((failure) => emit(state.copyWith(status: ViewStatus.failure)), (success) {
+    result.fold((failure) => emit(state.copyWith(status: ViewStatus.failure, failure: failure)), (success) {
       _page++;
       emit(
         success.isEmpty

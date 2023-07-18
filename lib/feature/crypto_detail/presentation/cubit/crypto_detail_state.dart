@@ -5,6 +5,7 @@ class CryptoDetailState with _$CryptoDetailState {
   const factory CryptoDetailState({
     required ViewStatus status,
     required CryptoDetailEntity cryptocurrency,
+    Failure? failure,
   }) = _CryptoDetailState;
 
   factory CryptoDetailState.initial() => CryptoDetailState(
