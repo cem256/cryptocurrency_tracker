@@ -7,7 +7,7 @@ abstract interface class SplashLocalDataSource {
 }
 
 @Injectable(as: SplashLocalDataSource)
-class SplashLocalDataSourceImpl implements SplashLocalDataSource {
+final class SplashLocalDataSourceImpl implements SplashLocalDataSource {
   SplashLocalDataSourceImpl({required SplashCacheClient cacheClient}) : _cacheClient = cacheClient;
 
   final SplashCacheClient _cacheClient;

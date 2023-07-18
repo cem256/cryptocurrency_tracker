@@ -9,7 +9,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: CryptoDetailRepository)
-class CryptoDetailRepositoryImpl implements CryptoDetailRepository {
+final class CryptoDetailRepositoryImpl implements CryptoDetailRepository {
   CryptoDetailRepositoryImpl({required CryptoDetailRemoteDataSource remoteDataSource})
       : _remoteDataSource = remoteDataSource;
 

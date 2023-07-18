@@ -8,7 +8,7 @@ abstract interface class CryptoRemoteDataSource {
 }
 
 @Injectable(as: CryptoRemoteDataSource)
-class CryptoRemoteDataSourceImpl implements CryptoRemoteDataSource {
+final class CryptoRemoteDataSourceImpl implements CryptoRemoteDataSource {
   CryptoRemoteDataSourceImpl({required NetworkClient networkClient}) : _networkClient = networkClient;
 
   final NetworkClient _networkClient;
@@ -17,7 +17,16 @@ class CryptoRemoteDataSourceImpl implements CryptoRemoteDataSource {
   Future<List<CryptoModel>> getAllCryptocurrencies({required int page, required int perPage}) async {
     try {
       final response = await _networkClient.get<List<dynamic>>(
-        ApiConstants.getAll(page: page, perPage: perPage),
+        ApiConstants.getAll,
+        queryParameters: {
+          'per_page': perPage,
+          'page': page,
+          'vs_currency': 'usd',
+          'order': 'market_cap_desc',
+          'sparkline': false,
+          'price_change_percentage': '1h,24h,7d',
+          'locale': 'en'
+        },
       );
 
       if (response.data == null) {

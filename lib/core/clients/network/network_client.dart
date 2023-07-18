@@ -7,7 +7,7 @@ import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 @lazySingleton
-class NetworkClient {
+final class NetworkClient {
   NetworkClient({
     required Dio dio,
   }) : _dio = dio {

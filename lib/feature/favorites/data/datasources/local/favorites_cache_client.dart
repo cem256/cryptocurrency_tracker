@@ -5,7 +5,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable()
-class FavoritesCacheClient extends CacheClientInterface<FavoriteModel> {
+final class FavoritesCacheClient extends CacheClientInterface<FavoriteModel> {
   @override
   String get boxName => CacheConstants.favoritesBox;
 

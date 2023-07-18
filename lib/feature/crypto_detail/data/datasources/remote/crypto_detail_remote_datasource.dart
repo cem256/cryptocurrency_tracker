@@ -9,7 +9,7 @@ abstract interface class CryptoDetailRemoteDataSource {
 }
 
 @Injectable(as: CryptoDetailRemoteDataSource)
-class CryptoDetailRemoteDataSourceImpl implements CryptoDetailRemoteDataSource {
+final class CryptoDetailRemoteDataSourceImpl implements CryptoDetailRemoteDataSource {
   CryptoDetailRemoteDataSourceImpl({required NetworkClient networkClient}) : _networkClient = networkClient;
 
   final NetworkClient _networkClient;
@@ -18,7 +18,17 @@ class CryptoDetailRemoteDataSourceImpl implements CryptoDetailRemoteDataSource {
   Future<CryptoDetailModel> getDetail({required String id}) async {
     try {
       final response = await _networkClient.get<List<dynamic>>(
-        ApiConstants.getDetail(id: id),
+        ApiConstants.getDetails,
+        queryParameters: {
+          'ids': id,
+          'vs_currency': 'usd',
+          'order': 'market_cap_desc',
+          'per_page': 1,
+          'page': 1,
+          'sparkline': false,
+          'price_change_percentage': '1h,24,7d,30d,1y',
+          'locale': 'en'
+        },
       );
 
       if (response.data == null) {

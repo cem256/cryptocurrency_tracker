@@ -3,7 +3,7 @@ import 'package:cryptocurrency_tracker/feature/splash/domain/repositories/splash
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: SplashRepository)
-class SplashRepositoryImpl implements SplashRepository {
+final class SplashRepositoryImpl implements SplashRepository {
   SplashRepositoryImpl({required SplashLocalDataSource dataSource}) : _dataSource = dataSource;
 
   final SplashLocalDataSource _dataSource;

@@ -10,7 +10,7 @@ abstract interface class FavoritesLocalDataSource {
 }
 
 @Injectable(as: FavoritesLocalDataSource)
-class FavoritesLocalDataSourceImpl implements FavoritesLocalDataSource {
+final class FavoritesLocalDataSourceImpl implements FavoritesLocalDataSource {
   FavoritesLocalDataSourceImpl({required FavoritesCacheClient cacheClient}) : _cacheClient = cacheClient;
 
   final FavoritesCacheClient _cacheClient;

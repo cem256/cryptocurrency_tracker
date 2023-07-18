@@ -7,7 +7,7 @@ abstract interface class OnboardingLocalDataSource {
 }
 
 @Injectable(as: OnboardingLocalDataSource)
-class OnboardingLocalDataSourceImpl implements OnboardingLocalDataSource {
+final class OnboardingLocalDataSourceImpl implements OnboardingLocalDataSource {
   OnboardingLocalDataSourceImpl({required OnboardingCacheClient cacheClient}) : _cacheClient = cacheClient;
 
   final OnboardingCacheClient _cacheClient;

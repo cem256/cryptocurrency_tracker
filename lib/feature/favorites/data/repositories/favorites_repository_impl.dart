@@ -10,7 +10,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: FavoritesRepository)
-class FavoritesRepositoryImpl implements FavoritesRepository {
+final class FavoritesRepositoryImpl implements FavoritesRepository {
   FavoritesRepositoryImpl({required FavoritesLocalDataSource dataSource}) : _dataSource = dataSource;
 
   final FavoritesLocalDataSource _dataSource;

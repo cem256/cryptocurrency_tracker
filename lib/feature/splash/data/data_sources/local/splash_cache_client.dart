@@ -3,7 +3,7 @@ import 'package:cryptocurrency_tracker/core/clients/cache/cache_client_interface
 import 'package:injectable/injectable.dart';
 
 @Injectable()
-class SplashCacheClient extends CacheClientInterface<bool> {
+final class SplashCacheClient extends CacheClientInterface<bool> {
   @override
   String get boxName => CacheConstants.onboardingBox;
 

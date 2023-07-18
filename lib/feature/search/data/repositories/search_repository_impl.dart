@@ -9,7 +9,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: SearchRepository)
-class SearchRepositoryImpl implements SearchRepository {
+final class SearchRepositoryImpl implements SearchRepository {
   SearchRepositoryImpl({required SearchRemoteDataSource remoteDataSource}) : _remoteDataSource = remoteDataSource;
 
   final SearchRemoteDataSource _remoteDataSource;

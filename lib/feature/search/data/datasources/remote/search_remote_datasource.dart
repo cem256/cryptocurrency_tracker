@@ -8,7 +8,7 @@ abstract interface class SearchRemoteDataSource {
 }
 
 @Injectable(as: SearchRemoteDataSource)
-class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
+final class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
   SearchRemoteDataSourceImpl({required NetworkClient networkClient}) : _networkClient = networkClient;
 
   final NetworkClient _networkClient;
